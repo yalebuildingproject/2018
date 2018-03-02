@@ -6,18 +6,27 @@
     "build": "bankai build index.js",
     "create": "choo-scaffold",
     "inspect": "bankai inspect index.js",
-    "start": "bankai start index.js",
+    "now-start": "serve ./dist --single",
+    "bankai": "bankai start index.js",
     "test": "standard && npm run test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons"
+  },
+  "documentify": {
+    "transform": [
+      "./transforms/three"
+    ]
   },
   "dependencies": {
     "choo": "^6.8.0",
     "gr8": "^3.1.5",
+    "hyperstream": "^1.2.2",
     "lodash": "^4.17.5",
     "nanocomponent": "^6.5.1",
+    "serve": "latest",
     "raf": "^3.4.0",
     "ress": "^1.2.2",
-    "sheetify": "^7.3.0"
+    "sheetify": "^7.3.0",
+    "three": "^0.90.0"
   },
   "devDependencies": {
     "bankai": "^9.8.0",
