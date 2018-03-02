@@ -1,11 +1,11 @@
 module.exports = store
 
 function store (state, emitter) {
-  state.totalClicks = 0
+  state.range = 100
 
   emitter.on('DOMContentLoaded', function () {
-    emitter.on('clicks:add', function (count) {
-      state.totalClicks += count
+    emitter.on('range', function (range) {
+      state.range = range
       emitter.emit(state.events.RENDER)
     })
   })

@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "choo": "^6.8.0",
-    "choo-service-worker": "^2.4.0",
-    "sheetify": "^7.3.0",
-    "tachyons": "^4.9.1"
+    "gr8": "^3.1.5",
+    "lodash": "^4.17.5",
+    "nanocomponent": "^6.5.1",
+    "raf": "^3.4.0",
+    "ress": "^1.2.2",
+    "sheetify": "^7.3.0"
   },
   "devDependencies": {
     "bankai": "^9.8.0",

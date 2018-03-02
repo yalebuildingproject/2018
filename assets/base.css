@@ -1,0 +1,25 @@
+html {
+  font-size: 13pt;
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+button, input {
+  outline: none;
+}
+ul, ol, li { 
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.indent-c > :not(:first-child) {
+    text-indent: 2em;
+}
