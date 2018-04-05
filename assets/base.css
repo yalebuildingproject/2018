@@ -1,5 +1,5 @@
 html {
-  font-size: 13pt;
+  font-size: 14pt;
   line-height: 1.2;
 }
 
@@ -22,4 +22,20 @@ a {
 
 .indent-c > :not(:first-child) {
     text-indent: 2em;
+}
+
+.p01 {
+  padding: 0.1rem;
+}
+
+.p025 {
+  padding: 0.25rem;
+}
+
+.p05 {
+  padding: 0.5rem;
+}
+
+.container {
+  margin-top: 4.5rem;
 }

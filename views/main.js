@@ -1,8 +1,5 @@
 var html = require('choo/html')
 var css = require('sheetify')
-var Logo = require('../components/logo')
-
-var logo = new Logo()
 
 var header = require('../elements/header')
 
@@ -49,7 +46,7 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   var d = new Date();
-  d.setDate(d.getDate() - (100 - state.range))
+  d.setDate(d.getDate() - (120 - state.range))
 
   var date = `${d.toLocaleDateString()} ${d.toLocaleTimeString()}`
   var offset = Math.floor(state.range / 100 * 80)
@@ -73,7 +70,6 @@ function view (state, emit) {
   return html`
     <body class="ff-sans">
       ${header()}
-      ${logo.render()}
       <div class="psf ${panel} ${pos1} x xafe pen" style="opacity: ${index == 1 ? 1 : 0};">
         <img class="pr1" width="900px" src="./assets/1.jpg">
         <div class="c2">

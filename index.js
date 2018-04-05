@@ -16,6 +16,11 @@ app.use(require('./stores/mouse'))
 app.use(require('./stores/refresh'))
 
 app.route('/', require('./views/main'))
+app.route('/about', require('./views/about'))
+app.route('/people', require('./views/people'))
+app.route('/design', require('./views/design'))
+app.route('/sponsors', require('./views/sponsors'))
+app.route('/contact', require('./views/contact'))
 app.route('/*', require('./views/404'))
 
 if (!module.parent) app.mount('body')
