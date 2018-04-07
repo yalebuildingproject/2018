@@ -21,19 +21,12 @@ a {
 }
 
 .indent-c > :not(:first-child) {
-    text-indent: 2em;
+    text-indent: 1rem;
 }
 
-.p0-1 {
-  padding: 0.1rem;
-}
-
-.p0-25 {
-  padding: 0.25rem;
-}
-
-.p0-5 {
-  padding: 0.5rem;
+.hang-indent {
+  text-indent: -1rem;
+  padding-left: 1rem;
 }
 
 .container {

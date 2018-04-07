@@ -2,13 +2,15 @@ var gr8 = require('gr8')
 
 var opts = {
   utils: [],
-  spacing: [0, 1, 2, 3, 4, 5, 6]
+  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4, 5, 6],
+  fontSize: [0.75, 0.9, 1, 1.2, 1.6, 2.4, 3.2, 6.4]
 }
 
 var colors = {
   black: '#000',
   white: '#fff',
-  gray: '#e0e0e0'
+  gray: '#808080',
+  lightgray: '#e0e0e0'
 }
 
 var borderWeights = [1]
@@ -34,6 +36,12 @@ opts.utils.push({
 
 opts.utils.push({
   prop: { bgc: 'background-color' },
+  join: '-',
+  vals: colors
+})
+
+opts.utils.push({
+  prop: 'color',
   join: '-',
   vals: colors
 })

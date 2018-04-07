@@ -1,5 +1,6 @@
 var html = require('choo/html')
 var css = require('sheetify')
+var utils = require('../lib/utils')
 
 var header = require('../elements/header')
 
@@ -27,7 +28,9 @@ function view (state, emit) {
         </div>
         <div class="c4">
             ${people.map(person => {
-              return fmt(person)
+              return html`<p class="fs1-6">
+                ${utils.fullname(person.first, person.last)}
+              </p>`
             })}
         </div>
         <div class="c5">
@@ -37,9 +40,4 @@ function view (state, emit) {
       </div>
     </body>
   `
-}
-
-function fmt(person) {
-  var name = `${person.first} ${person.last}`
-  return html`<p class="fs1-6">${name}</p>`
 }
