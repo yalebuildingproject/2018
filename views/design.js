@@ -4,6 +4,7 @@ var utils = require('../lib/utils')
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
+var images = require('../elements/image-group')
 
 var TITLE = 'bp - design'
 
@@ -35,10 +36,12 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header()}
       <div class="container">
-        ${layout(fmt(a), col2)}
+        ${layout(fmt(a), images(Object.values(a.files).map(file => {
+          return file.source
+        })))}
       </div>
       <div class="c12 x xjb px2 py2">
-        <div class="c3 pr2"  style="border-right: 1px solid #e0e0e0; font-size: 0.9rem;">
+        <div class="c3 pr2"  style="border-right: 1px solid #e0e0e0;">
           ${fmt(b)}
         </div>
         <div class="c9 px2">
@@ -59,7 +62,7 @@ function view (state, emit) {
 }
 
 function fmt(team) {
-  return html`<div class="fs0-9">
+  return html`<div>
     <h1 class="mb1 fs3-2">A</h1>
     <div class="x">
     <ul class="s2 mb1">
