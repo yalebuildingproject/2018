@@ -4,7 +4,7 @@ text:
 
 Every year, the project relies on generous in-kind donations for the vast majority of the construction materials. If you are interested in becoming a donor, please contact our procurement managers at the addresses below:
 
-* Emily Cass <emily.cass@yale.edu>
-* David Schaengold <david.schaengold@yale.edu>
+* Emily Cass [emily.cass@yale.edu](mailto:emily.cass@yale.edu)
+* David Schaengold [david.schaengold@yale.edu](mailto:david.schaengold@yale.edu)
 
 We would also like to thank our donors who made the 2017 Jim Vlock Building Project possible.
