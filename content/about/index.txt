@@ -1,0 +1,11 @@
+title: About
+----
+text:
+
+This year’s site is located at 43 Button Street in New Haven’s Hill neighborhood.
+
+Since 1967, first-year students at the Yale School of Architecture have worked collaboratively to design and build a structure as part of their graduate education. Unique among architecture schools, the Jim Vlock Building Project is a vital component of Yale's curriculum.
+
+For the second consecutive year, the Yale School of Architecture is partnering with Columbus House, a non-profit organization working to end homelessness in the New Haven area. Columbus House offers emergency shelter and a range of housing services to community members experiencing or at risk of homelessness, with the ultimate goal of providing service-enriched or independent housing to those in need.
+
+Students are tasked with creating a cost-efficient design for a 1,000 square foot two-unit home, while exploring methods and assemblies unique to traditional stick-frame and cross-laminated timber construction. Students work in teams to design and develop proposals for the dwelling, taking each proposal through the technical documentation phase. A final design is selected at the end of the spring semester, and students begin construction in early May.

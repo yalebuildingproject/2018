@@ -10,9 +10,10 @@ var menu = css`
 module.exports = header
 
 function header (page) {
-  return html`<header class="z4 psf c12 usn t0 l0 r0 px2 py1 x xjb">
+
+  return html`<header class="z4 psf c12 usn t0 l0 r0 px2 py1 x xjb bgc-white">
     <div class="x xjb c6">
-      <h1 class="di">Yale Building Project 2018</h1>
+      <h1 class="di">Jim Vlock Building Project 2018</h1>
     </div>
     <div class="x xjb c6">
       <div class="x ${menu}">

@@ -3,14 +3,14 @@ var css = require('sheetify')
 
 var header = require('../elements/header')
 
-var people = require('../data/people.json')
-
 var TITLE = 'bp - people'
 
 module.exports = view
 
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
+
+  var people = state.site.pages.people.people
 
   return html`
     <body class="ff-sans">
@@ -20,15 +20,15 @@ function view (state, emit) {
           <div class="c3 psf mt5 mb1 t0 b0 l0 pl2" style="border-right: 1px solid #e0e0e0">
             <p>Sort by:</p>
             <p>First Name</p>
-            <p>Last Name</p>
+            <p style="color: gray">Last Name</p>
             <p>Team</p>
             <p>Hometown</p>
           </div>
         </div>
         <div class="c4">
-          ${people.people.map(person => {
-            return fmt(person)
-          })}
+            ${people.map(person => {
+              return fmt(person)
+            })}
         </div>
         <div class="c5">
           <div class="c5 psf mt5 mb1 t0 b0 r0 pr2" style="border-left: 1px solid #e0e0e0">

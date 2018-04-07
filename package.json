@@ -11,22 +11,28 @@
     "test": "standard && npm run test-deps",
     "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons"
   },
+  "browserify": {
+    "transform": [
+      "hypha/transform"
+    ]
+  },
   "dependencies": {
-    "choo": "^6.8.0",
+    "choo": "^6.10.3",
     "gr8": "^3.1.5",
+    "hypha": "^0.4.4",
     "lodash": "^4.17.5",
     "nanocomponent": "^6.5.1",
     "npm": "^5.8.0",
     "raf": "^3.4.0",
     "ress": "^1.2.2",
-    "serve": "latest",
+    "serve": "^6.5.3",
     "sheetify": "^7.3.0"
   },
   "devDependencies": {
-    "bankai": "^9.8.0",
-    "choo-devtools": "^2.3.4",
+    "bankai": "s3ththompson/bankai#content",
+    "choo-devtools": "^2.5.0",
     "choo-scaffold": "^1.1.2",
     "dependency-check": "^3.1.0",
-    "standard": "^11.0.0"
+    "standard": "^11.0.1"
   }
 }

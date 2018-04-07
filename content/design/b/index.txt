@@ -1,0 +1,28 @@
+title: Team B
+----
+people:
+  - first: Cristina
+    last: Anastase
+    team: B
+  - first: Adam
+    last: Feldman
+    team: B
+  - first: Kelley
+    last: Johnson
+    team: B
+  - first: Layla
+    last: Ni
+    team: B
+  - first: Deirdre
+    last: Plaus
+    team: B
+  - first: Jenna
+    last: Ritz
+    team: B
+  - first: Armaan
+    last: Shah
+    team: B
+----
+text:
+
+Challenged with designing a two-unit home for Columbus House in the Hill neighborhood in New Haven, we wanted to approach the project through the lens of the Columbus House mission. Aiming to shelter as many people as possible, we are exploring a flexible design that can adapt over time to accommodate more people. Through the implementation of flexible partitions and inverted porches, we hope that our design can accommodate the range of family makeups that Columbus House aims to shelter. This design can stay true to the original brief -- accommodating a small family unit and efficiency unit. However, it can also adapt to accommodate two family units, one large family, or even an adult group home. We strive to create a design that can fulfill the immediate and future needs of Columbus House within a single building envelope. Through our conversations with Columbus House clients and the tenants of last year’s Adeline House, we aim to design opportunities for choice in the building. The people living in the units would be able to choose whether or not they want to interact, giving the tenants control of their own space. With these design goals and the mission of Columbus House in focus, we used the guiding design ideas of shifting enclosures and flexible spatial exchange to drive the design process. Staying true to the mission of Columbus House, we aim to create a flexible design that can adapt to the changing needs of the individuals experiencing homelessness in New Haven. 

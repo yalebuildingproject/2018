@@ -1,0 +1,28 @@
+title: Team A
+----
+people:
+  - first: Michelle
+    last: Badr
+    team: A
+  - first: Helen
+    last: Farley
+    team: A
+  - first: Tianyu
+    last: Guan
+    team: A
+  - first: Andrew
+    last: Kim
+    team: A
+  - first: Andrew
+    last: Miller
+    team: A
+  - first: Jonathan
+    last: Palomo
+    team: A
+  - first: Laelia
+    last: Vaulot
+    team: A
+----
+text:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut massa risus. Maecenas a vehicula est. Vestibulum ultricies consectetur dignissim. Suspendisse potenti. Duis elementum scelerisque ornare. In vel aliquet lorem. Fusce vel leo sed urna pharetra mollis sed at ipsum. Vestibulum quis gravida urna. Fusce ultricies accumsan lacinia. Aliquam mollis nibh ut ullamcorper pharetra. Fusce in elit auctor, imperdiet mi in, sagittis tellus. Praesent sed malesuada ligula. Quisque id leo nisl. Integer nec erat eget quam congue tincidunt tristique et lorem.
