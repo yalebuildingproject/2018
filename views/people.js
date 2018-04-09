@@ -23,13 +23,23 @@ function view (state, emit) {
     </ul>
   </div>`
 
-    var col2 = html`<ul>
+    var history = {}
+
+    var col2 = html`<div>
       ${people.map(person => {
-        return html`<li class="fs1-6 hang-indent">
-          ${utils.fullname(person.first, person.last)}
-        </li>`
+        var first = false
+        if (state.sortBy == 'team') {
+          if (!history[person.team]) {
+            history[person.team] = true
+            first = true
+          }
+        }
+        return html`<div class="c12 x xjb xafe">
+          <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
+          <div class="c4 fs1-6 c-gray">${(first) ? person.team : ''}</div>
+        </div>`
       })}
-    </ul>`
+    </div>`
 
   return html`
     <body class="ff-sans px1-5">
