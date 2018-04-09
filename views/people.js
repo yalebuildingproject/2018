@@ -20,13 +20,14 @@ function view (state, emit) {
         <div class="c3">
           <div class="c3 psf mt5 mb1 t0 b0 l0 pl2" style="border-right: 1px solid #e0e0e0">
             <p>Sort by:</p>
-            <p>First Name</p>
-            <p style="color: gray">Last Name</p>
-            <p>Team</p>
-            <p>Hometown</p>
+            <ul>
+              <li><a href="#" class="dib ${(state.sortBy == 'first') ? 'tdu' : ''} tdu-hover" data-method="first" onclick=${sort}>First Name</a></li>
+              <li><a href="#" class="dib ${(state.sortBy == 'last') ? 'tdu' : ''} tdu-hover" data-method="last" onclick=${sort}>Last Name</a></li>
+              <li><a href="#" class="dib ${(state.sortBy == 'team') ? 'tdu' : ''} tdu-hover" data-method="team" onclick=${sort}>Team</a></li>
+            </ul>
           </div>
         </div>
-        <div class="c4">
+        <div class="c5 x">
           <ul>
             ${people.map(person => {
               return html`<li class="fs1-6 hang-indent">
@@ -35,11 +36,14 @@ function view (state, emit) {
             })}
           </ul>
         </div>
-        <div class="c5">
-          <div class="c5 psf mt5 mb1 t0 b0 r0 pr2" style="border-left: 1px solid #e0e0e0">
+        <div class="c4">
+          <div class="c4 psf mt5 mb1 t0 b0 r0 pr2" style="border-left: 1px solid #e0e0e0">
           </div>
         </div>
       </div>
     </body>
   `
+  function sort(e) {
+    emit('people:sort', e.target.dataset.method)
+  }
 }
