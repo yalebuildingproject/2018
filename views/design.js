@@ -1,10 +1,12 @@
 var html = require('choo/html')
+var raw = require('choo/html/raw')
 var css = require('sheetify')
 var utils = require('../lib/utils')
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
 var images = require('../elements/image-group')
+var lightbox = require('../elements/lightbox')
 
 var TITLE = 'bp - design'
 
@@ -13,68 +15,36 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var a = state.site.pages.design.pages.a
-  var b = state.site.pages.design.pages.b
-  var c = state.site.pages.design.pages.c
+  var teams = Object.values(state.site.pages.design.pages)
 
-  var col2 = html`
-    <div>
-      <div class="c8 co2 p025">
-        <img class="mx100" src="/content/design/a/diagram.jpg">
-      </div>
-      <div class="c12 x xjb">
-       <div class="c7 p025">
-          <img class="mx100" src="/content/design/a/plan.jpg">
-        </div>
-        <div class="c5 p025">
-          <img class="mx100" src="/content/design/a/model.jpg">
-        </div>
-      </div>
-    </div>`
+  utils.shuffle(teams)
+
+  //lightbox(Object.values(teams[0].files)[0])
 
   return html`
     <body class="ff-sans px1-5 pb1">
-      ${header()}
+      ${header('/design')}
       <div class="container">
-        ${layout(fmt(a), images(Object.values(a.files).map(file => {
-          return file.source
-        })))}
-      </div>
-      <div class="c12 x xjb px2 py2">
-        <div class="c3 pr2"  style="border-right: 1px solid #e0e0e0;">
-          ${fmt(b)}
-        </div>
-        <div class="c9 px2">
-          <div class="c8 p025">
-            <img class="mx100" src="/content/design/b/model.jpg">
-          </div>
-          <div class="c12 x xjb">
-           <div class="c7 p025">
-              <img class="mx100" src="/content/design/b/perspective.jpg">
-            </div>
-            <div class="c5 p025">
-              <img class="mx100" src="/content/design/b/diagram.jpg">
-            </div>
-          </div>
-        </div>
+        ${teams.map(team => {
+          var imgs = Object.values(team.files).map(file => {
+            return file.source
+          })
+          return layout(fmt(team), images(imgs))
+        })}
       </div>
     </body>`
 }
 
 function fmt(team) {
   return html`<div>
-    <h1 class="mb1 fs3-2">A</h1>
+    <h1 class="mb1 fs3-2 ttu">${team.name}</h1>
     <div class="x">
     <ul class="s2 mb1">
-      <li>Michelle Badr</li>
-      <li>Helen Farley</li>
-      <li>Tianyu Guan</li>
-      <li>Andrew Kim</li>
-      <li>Andrew Miller</li>
-      <li style="text-indent: -1rem; padding-left: 1rem;">Max Ouellette-Howitz</li>
-      <li>Laelia Vaulot</li>
+      ${team.people.map(person => {
+        return html`<li class="hang-indent">${utils.fullname(person.first, person.last)}</li>`
+      })}
     </ul>
     </div>
-    <p style="">${team.text}</p>
+    <p class="fs0-9">${raw(team.html)}</p>
   </div>`
 }

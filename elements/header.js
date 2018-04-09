@@ -32,30 +32,47 @@ module.exports = header
 
 function header (page) {
 
-  return html`<header class="z4 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
+  var sidetext
+  if (page == '/design') {
+    sidetext = html`<div>Proposals from<br>Team A, B, C, D, E, F, G, H, I</div>`
+  } else {
+    sidetext = html`<div>43 Button Street<br>New Haven, CT 06519</div>`
+  }
+
+  return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
     <div class="c3">
       <span class="di">Jim Vlock Building Project 2018</span>
     </div>
-    <div class="c6 co3">
-      <div class="x xjb">
-        <div class="x ${menu}">
-          <ul>
-            <li class="pr1"><a href="/" class="pr0 dib tdu-hover">Home</a></li>
-            <li class="pr1"><a href="/about" class="pr0 dib tdu-hover">About</a></li>
-          </ul>
-          <ul>
-            <li class="pr1"><a href="/design" class="pr0 dib tdu-hover">Design</a></li>
-            <li class="pr1"><a href="/people" class="pr0 dib tdu-hover">People</a></li>
-          </ul>
-          <ul>
-            <li class="pr1"><a href="/sponsors" class="pr0 dib tdu-hover">Sponsors</a></li>
-            <li class="pr1"><a href="/contact" class="pr0 dib tdu-hover">Contact</a></li>
-          </ul>
-        </div>
-        <div class="c-gray">
-          Team A, B, C, D, E, F, G, H, I
-        </div>
-        </div>
+    <div class="c3 co3">
+      <div class="x ${menu}">
+        <ul>
+          <li class="pr1">
+            <a href="/" class="pr0 dib ${(page == '/') ? 'tdu' : 'tdu-hover'}">Home</a>
+          </li>
+          <li class="pr1">
+            <a href="/about" class="pr0 dib ${(page == '/about') ? 'tdu' : 'tdu-hover'}">About</a>
+          </li>
+        </ul>
+        <ul>
+          <li class="pr1">
+            <a href="/design" class="pr0 dib ${(page == '/design') ? 'tdu' : 'tdu-hover'}">Design</a>
+          </li>
+          <li class="pr1">
+            <a href="/people" class="pr0 dib ${(page == '/people') ? 'tdu' : 'tdu-hover'}">People</a>
+          </li>
+        </ul>
+        <ul>
+          <li class="pr1">
+            <a href="/sponsors" class="pr0 dib ${(page == '/sponsors') ? 'tdu' : 'tdu-hover'}">Sponsors</a>
+          </li>
+          <li class="pr1">
+            <a href="/contact" class="pr0 dib ${(page == '/contact') ? 'tdu' : 'tdu-hover'}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="c2 co1 c-gray">
+      ${sidetext}
     </div>
   </header>`
 }

@@ -15,7 +15,7 @@ function view (state, emit) {
 
   return html`
     <body class="ff-sans">
-      ${header()}
+      ${header('/people')}
       <div class="c12 x xjb px2 pt5 pb1">
         <div class="c3">
           <div class="c3 psf mt5 mb1 t0 b0 l0 pl2" style="border-right: 1px solid #e0e0e0">
@@ -27,11 +27,13 @@ function view (state, emit) {
           </div>
         </div>
         <div class="c4">
+          <ul>
             ${people.map(person => {
-              return html`<p class="fs1-6">
+              return html`<li class="fs1-6 hang-indent">
                 ${utils.fullname(person.first, person.last)}
-              </p>`
+              </li>`
             })}
+          </ul>
         </div>
         <div class="c5">
           <div class="c5 psf mt5 mb1 t0 b0 r0 pr2" style="border-left: 1px solid #e0e0e0">

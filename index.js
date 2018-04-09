@@ -1,13 +1,14 @@
 var css = require('sheetify')
 var choo = require('choo')
 var hypha = require('hypha')
+
 var utils = require('./lib/utils')
 
 var site = hypha.readSiteSync('./content')
 
 css('ress')
-css('./assets/css/base.css')
 css('./assets/css/css.js')
+css('./assets/css/base.css')
 css('./assets/fonts/lunchtype22.css')
 
 var app = choo()

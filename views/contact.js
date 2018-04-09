@@ -14,7 +14,7 @@ function view (state, emit) {
 
   return html`
     <body class="ff-sans">
-      ${header()}
+      ${header('/contact')}
       <div class="c12 x xjb px2 pt5 pb1">
         <div class="c4">
           <div class="c3 psf mt5 mb1 t0 b0 l0 pl2" style="border-right: 1px solid #e0e0e0">

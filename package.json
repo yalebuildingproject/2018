@@ -13,27 +13,30 @@
   },
   "browserify": {
     "transform": [
-      "hypha/transform"
+      "./transforms/hypha"
     ]
   },
   "dependencies": {
+    "bankai": "^9.10.6",
     "choo": "^6.10.3",
+    "commonmark": "^0.28.1",
     "gr8": "^3.1.5",
     "hypha": "^0.4.4",
     "lodash": "^4.17.5",
-    "nano-markdown": "^1.2.0",
     "nanocomponent": "^6.5.1",
     "npm": "^5.8.0",
     "raf": "^3.4.0",
     "ress": "^1.2.2",
     "serve": "^6.5.3",
-    "sheetify": "^7.3.0"
+    "sheetify": "^7.3.0",
+    "smarkt": "0.0.6",
+    "typeset": "s3ththompson/Typeset"
   },
   "devDependencies": {
-    "bankai": "s3ththompson/bankai#content",
     "choo-devtools": "^2.5.0",
     "choo-scaffold": "^1.1.2",
     "dependency-check": "^3.1.0",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "static-module": "^2.2.3"
   }
 }

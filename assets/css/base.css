@@ -15,9 +15,40 @@ button, input {
 ul, ol, li { 
   list-style: none;
 }
+
+ul, ol {
+  margin-bottom: 1.2rem;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+p {
+  margin-bottom: 1.2rem;
+  hyphens: auto;
+  text-align: justify
+}
+
+.container {
+  margin-top: 4.5rem;
+}
+
+.tdu {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'><rect width='1' height='1'/></svg>");
+  background-repeat: repeat-x;
+  background-position: 0 85%;
+  background-size: 1px;
+  text-decoration: none;
+}
+
+.tdu-hover:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'><rect width='1' height='1'/></svg>");
+  background-repeat: repeat-x;
+  background-position: 0 85%;
+  background-size: 1px;
+  text-decoration: none;
 }
 
 .indent-c > :not(:first-child) {
@@ -29,6 +60,10 @@ a {
   padding-left: 1rem;
 }
 
-.container {
-  margin-top: 4.5rem;
-}
+/* Double quote (") marks */
+.pull-double{margin-left:-.38em}
+.push-double{margin-right:.38em}
+
+/* Single quote (') marks */
+.pull-single{margin-left:-.15em}
+.push-single{margin-right:.15em}

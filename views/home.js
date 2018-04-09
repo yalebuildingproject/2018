@@ -69,7 +69,7 @@ function view (state, emit) {
 
   return html`
     <body class="ff-sans">
-      ${header()}
+      ${header('/')}
       <div class="psf ${panel} ${pos1} x xafe pen" style="opacity: ${index == 1 ? 1 : 0};">
         <img class="pr1" width="900px" src="./assets/1.jpg">
         <div class="c2">

@@ -1,4 +1,5 @@
 var html = require('choo/html')
+var utils = require('../lib/utils')
 
 module.exports = layout
 
@@ -6,7 +7,7 @@ function layout (imgs) {
   var row = 0
   var els = []
 
-  shuffle(imgs)
+  utils.shuffle(imgs)
 
   while (imgs.length > 0) {
     var img1, img2
@@ -69,18 +70,5 @@ function randPadding(split) {
       return 4;
     case 2:
       return 8;
-  }
-}
-
-function shuffle (array) {
-  var i = 0
-    , j = 0
-    , temp = null
-
-  for (i = array.length - 1; i > 0; i -= 1) {
-    j = Math.floor(Math.random() * (i + 1))
-    temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
   }
 }
