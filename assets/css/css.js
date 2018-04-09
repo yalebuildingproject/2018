@@ -55,16 +55,10 @@ opts.utils.push({
   }
 })
 
-// opts.utils.push({
-//   prop: 'text-decoration',
-//   vals: {
-//     'u-hover': 'underline',
-//     'o-hover': 'overline',
-//     'lt-hover': 'line-through',
-//     'n-hover': 'none'
-//   },
-//   tail: ':hover'
-// })
+opts.utils.push({
+  prop: 'overflow',
+  vals: ['auto']
+})
 
 opts.utils.push({
   prop: { hc: 'height' },
