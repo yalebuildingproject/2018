@@ -4,7 +4,13 @@ var hypha = require('hypha')
 
 var utils = require('./lib/utils')
 
-var site = hypha.readSiteSync('./content')
+var opts = {}
+
+if (process.env.NODE_ENV !== 'production') {
+  opts.parse = require('./transforms/parse')
+}
+
+var site = hypha.readSiteSync('./content', opts)
 
 css('ress')
 css('./assets/css/css.js')

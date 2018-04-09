@@ -12,6 +12,7 @@ function parse(str) {
   if (content.text) {
     var html = markdown(content.text)
     content.html = typeset(html)
+    delete content.text
   }
   return content
 }
