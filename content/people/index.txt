@@ -16,12 +16,15 @@ people:
   - first: Camille
     last: Chabrol
     team: I
+    hometown: Cos Cob, CT, USA
   - first: Serena
     last: Ching
     team: I
+    hometown: Klang, Malaysia
   - first: Page
     last: Comeaux
     team: I
+    hometown: New Iberia, LA, USA
   - first: Rosa
     last: Congdon
     team: F
@@ -61,6 +64,7 @@ people:
   - first: Phoebe
     last: Harris
     team: I
+    hometown: Philadelphia, PA, USA
   - first: Will
     last: James
     team: D
@@ -136,6 +140,7 @@ people:
   - first: Rhea
     last: Schmid
     team: I
+    hometown: Zurich, Switzerland
   - first: Armaan
     last: Shah
     team: B
@@ -157,6 +162,7 @@ people:
   - first: Seth
     last: Thompson
     team: I
+    hometown: Henderson, NV, USA
   - first: Lissette
     last: Valenzuela
     team: G

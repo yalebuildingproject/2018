@@ -31,6 +31,21 @@ p {
   text-align: justify
 }
 
+.compact p {
+  margin-bottom: 0;
+  hyphens: auto;
+  text-align: inherit;
+}
+
+.compact ul, .compact ol {
+  margin-bottom: 0;
+}
+
+.compact hr {
+  margin-bottom: 1.2rem;
+  visibility: hidden;
+}
+
 .container {
   padding-top: 4.5rem;
 }

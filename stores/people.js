@@ -1,12 +1,12 @@
 module.exports = store
 
 function store (state, emitter) {
-  state.sortBy = 'last'
+  state.sortPeople = 'last'
 
   emitter.on('DOMContentLoaded', function () {
     emitter.on('people:sort', function (method) {
-      if (method == state.sortBy) return
-      state.sortBy = method
+      if (method == state.sortPeople) return
+      state.sortPeople = method
       var people = state.site.pages.people.people
       people.sort(compareBy(method))
       emitter.emit('render')

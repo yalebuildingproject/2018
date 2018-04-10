@@ -1,10 +1,19 @@
 var html = require('choo/html')
+var raw = require('choo/html/raw')
+
 var css = require('sheetify')
 
+var utils = require('../lib/utils')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
 var TITLE = 'bp - contact'
+
+var menu = css`
+  :host li:before {
+    content: "\\2192\\0020\\0020";
+  }
+`
 
 module.exports = view
 
@@ -13,10 +22,44 @@ function view (state, emit) {
 
   var contact = state.site.pages.contact
 
+  var col1 = html`<div class="x xdc xjb h100">
+    <div>
+      <p>Choose:</p>
+      <ul class="${menu}">
+        <li><a href="#" class="dib tdu-hover" data-method="first" onclick=${sort}>Student Leadership</a></li>
+        <li><a href="#" class="dib tdu-hover" data-method="last" onclick=${sort}>Faculty</a></li>
+      </ul>
+      <p>Sort by:</p>
+      <ul>
+        <li><a href="#" class="dib tdu-hover" data-method="first" onclick=${sort}>First Name</a></li>
+        <li><a href="#" class="dib tdu-hover" data-method="last" onclick=${sort}>Last Name</a></li>
+        <li><a href="#" class="dib tdu-hover" data-method="team" onclick=${sort}>Title</a></li>
+      </ul>
+    </div>
+    <div class="compact">
+      ${raw(contact.html)}
+    </div>
+  </div>`
+
+
+  var col2 = html`<div>
+    ${contact.students.map(person => {
+      return html`<div class="c12 x xjb">
+        <div class="c4 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
+        <div class="c4 fs1-6 c-gray">${person.title}</div>
+        <div class="c4 fs1-6 c-gray">${person.email}</div>
+      </div>`
+    })}
+  </div>`
+
   return html`
     <body class="ff-sans px1-5">
       ${header('/contact')}
-      ${container('', '')}
+      ${container(col1, col2)}
     </body>
   `
+
+  function sort() {
+
+  }
 }

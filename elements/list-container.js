@@ -9,15 +9,18 @@ var hidescroll = css`
 
 module.exports = layout
 
-function layout (col1, col2) {
-  return html`<div class="container x vh100">
+function layout (col1, col2, col3) {
+  var three = (typeof col3 !== "undefined")
+  var container3 = three ? html`<div class="c4 pl1-5 bl1-lightgray">
+    </div>` : ''
+
+  return html`<div class="container pb1 x vh100">
     <div class="c3 pr1-5 br1-lightgray">
       ${col1}
     </div>
-    <div class="c5 container oa px1-5 undo-container ${hidescroll}">
+    <div class="${three ? 'c5' : 'c9'} container oa px1-5 undo-container ${hidescroll}">
       ${col2}
     </div>
-    <div class="c4 pl1-5 bl1-lightgray">
-    </div>
+    ${container3}
   </div>`
 }
