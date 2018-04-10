@@ -30,24 +30,24 @@ function layout (imgs) {
 
 function single(img) {
   var p = randPadding()
-  return html`<div class="x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
+  return html`<div class="px4"><div class="x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
     <div class="p0-25">
       <img class="mx100" src="${img}">
     </div>
-  </div>`
+  </div></div>`
 }
 
 function split(img1, img2) {
   var p = randPadding(true)
   var s = randSplit()
-  return html`<div class="x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
+  return html`<div class="px4"><div class="x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
     <div class="p0-25" style="width: ${s + '%'};">
       <img class="mx100" src="${img1}">
     </div>
     <div class="p0-25" style="width: ${100 - s + '%'};">
       <img class="mx100" src="${img2}">
     </div>
-  </div>`
+  </div></div>`
 }
 
 function randSplit() {

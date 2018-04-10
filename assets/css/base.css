@@ -54,6 +54,10 @@ p {
   margin-top: -4.5rem;
 }
 
+.undo-bottom {
+  margin-bottom: -1rem;
+}
+
 .tdu {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'><rect width='1' height='1'/></svg>");
   background-repeat: repeat-x;

@@ -36,7 +36,7 @@ function view (state, emit) {
       }
       return html`<div class="c12 x xjb">
         <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="c4 fs1-6 c-gray">${(first) ? person.team : ''}</div>
+        <div class="c4 fs1-6 c-gray">${(first) ? `Team ${person.team}` : ''}</div>
       </div>`
     })}
   </div>`
