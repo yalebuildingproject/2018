@@ -5,7 +5,7 @@ var utils = require('../lib/utils')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
-var TITLE = 'bp - people'
+var TITLE = 'People - Building Project 2018'
 
 module.exports = view
 

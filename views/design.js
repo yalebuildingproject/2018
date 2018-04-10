@@ -8,7 +8,7 @@ var layout = require('../elements/primary-layout')
 var images = require('../elements/image-group')
 var lightbox = require('../elements/lightbox')
 
-var TITLE = 'bp - design'
+var TITLE = 'Design - Building Project 2018'
 
 module.exports = view
 

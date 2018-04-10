@@ -5,7 +5,7 @@ var css = require('sheetify')
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
 
-var TITLE = 'bp - about'
+var TITLE = 'About - Building Project 2018'
 
 module.exports = view
 

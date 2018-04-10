@@ -25,9 +25,6 @@ if (process.env.NODE_ENV !== 'production') {
 app.use((state, emitter) => {
   state.site = utils.sitemap(site['/content'], site)
 })
-app.use(require('./stores/range'))
-app.use(require('./stores/mouse'))
-app.use(require('./stores/refresh'))
 app.use(require('./stores/people'))
 app.use(require('./stores/contact'))
 

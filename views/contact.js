@@ -7,7 +7,7 @@ var utils = require('../lib/utils')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
-var TITLE = 'bp - contact'
+var TITLE = 'Contact - Building Project 2018'
 
 var menu = css`
   :host li:before {
