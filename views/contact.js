@@ -26,14 +26,14 @@ function view (state, emit) {
     <div>
       <p>Choose:</p>
       <ul class="${menu}">
-        <li><a href="#" class="dib tdu-hover" data-method="first" onclick=${sort}>Student Leadership</a></li>
-        <li><a href="#" class="dib tdu-hover" data-method="last" onclick=${sort}>Faculty</a></li>
+        <li><a href="#" class="dib ${(state.chooseContact == 'students') ? 'tdu' : ''} tdu-hover" data-choice="students" onclick=${choose}>Student Leadership</a></li>
+        <li><a href="#" class="dib ${(state.chooseContact == 'faculty') ? 'tdu' : ''} tdu-hover" data-choice="faculty" onclick=${choose}>Faculty</a></li>
       </ul>
       <p>Sort by:</p>
       <ul>
-        <li><a href="#" class="dib tdu-hover" data-method="first" onclick=${sort}>First Name</a></li>
-        <li><a href="#" class="dib tdu-hover" data-method="last" onclick=${sort}>Last Name</a></li>
-        <li><a href="#" class="dib tdu-hover" data-method="team" onclick=${sort}>Title</a></li>
+        <li><a href="#" class="dib ${(state.sortContact == 'first') ? 'tdu' : ''} tdu-hover" data-method="first" onclick=${sort}>First Name</a></li>
+        <li><a href="#" class="dib ${(state.sortContact == 'last') ? 'tdu' : ''} tdu-hover" data-method="last" onclick=${sort}>Last Name</a></li>
+        <li><a href="#" class="dib ${(state.sortContact == 'sort') ? 'tdu' : ''} tdu-hover" data-method="sort" onclick=${sort}>Role</a></li>
       </ul>
     </div>
     <div class="compact">
@@ -43,11 +43,11 @@ function view (state, emit) {
 
 
   var col2 = html`<div>
-    ${contact.students.map(person => {
+    ${contact[state.chooseContact].map(person => {
       return html`<div class="c12 x xjb">
         <div class="c4 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="c4 fs1-6 c-gray">${person.title}</div>
-        <div class="c4 fs1-6 c-gray">${person.email}</div>
+        <div class="c4 fs1-6 c-gray">${person.role}</div>
+        <div class="c4 fs1-6 c-gray"><a href="mailto:${person.email}">${person.email}</a></div>
       </div>`
     })}
   </div>`
@@ -59,7 +59,11 @@ function view (state, emit) {
     </body>
   `
 
-  function sort() {
+  function choose(e) {
+    emit('contact:choose', e.target.dataset.choice)
+  }
 
+  function sort(e) {
+    emit('contact:sort', e.target.dataset.method)
   }
 }

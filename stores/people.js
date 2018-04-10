@@ -2,6 +2,8 @@ module.exports = store
 
 function store (state, emitter) {
   state.sortPeople = 'last'
+  var people = state.site.pages.people.people
+  people.sort(compareBy(state.sortPeople))
 
   emitter.on('DOMContentLoaded', function () {
     emitter.on('people:sort', function (method) {

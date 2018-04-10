@@ -29,6 +29,7 @@ app.use(require('./stores/range'))
 app.use(require('./stores/mouse'))
 app.use(require('./stores/refresh'))
 app.use(require('./stores/people'))
+app.use(require('./stores/contact'))
 
 app.route('/', require('./views/home'))
 app.route('/about', require('./views/about'))

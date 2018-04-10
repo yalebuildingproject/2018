@@ -4,118 +4,118 @@ students:
   - first: Page
     last: Comeaux
     email: page.comeaux@yale.edu
-    title: Project Manager
+    role: Project Manager
     sort: 1
   - first: Katie
     last: Lau
     email: katie.lau@yale.edu
-    title: Project Manager
+    role: Project Manager
     sort: 1
   - first: Emily
     last: Cass
     email: emily.cass@yale.edu
-    title: Procurement Manager
+    role: Procurement Manager
     sort: 2
   - first: David
     last: Schaengold
     email: david.schaengold@yale.edu
-    title: Procurement Manager
+    role: Procurement Manager
     sort: 2
   - first: Seth
     last: Thompson
     email: seth.thompson@yale.edu
-    title: Website Designer
+    role: Website Designer
     sort: 7
   - first: Matthew
     last: Liu
     email: matthew.liu@yale.edu
-    title: Photographer
+    role: Photographer
     sort: 6
   - first: Kay
     last: Yang
     email: kay.yang@yale.edu
-    title: Photographer
+    role: Photographer
     sort: 6
   - first: Max
     last: Ouellete-Howitz
     email: max.ouellette-howitz@yale.edu
-    title: Community Coordinator
+    role: Community Coordinator
     sort: 3
   - first: Rhea
     last: Schmid
     email: rhea.schmid@yale.edu
-    title: Community Coordinator
+    role: Community Coordinator
     sort: 3
   - first: Camille
     last: Chabrol
     email: camille.chabrol@yale.edu
-    title: Exhibit Coordinator
+    role: Exhibit Coordinator
     sort: 4
   - first: Deo
     last: Deiparine
     email: deo.deiparine@yale.edu
-    title: Exhibit Coordinator
+    role: Exhibit Coordinator
     sort: 4
   - first: Christine
     last: Pan
     email: christine.pan@yale.edu
-    title: Archivist
+    role: Archivist
     sort: 5
   - first: Serena
     last: Ching
     email: serena.ching@yale.edu
-    title: Field Crew Managers
+    role: Field Crew Managers
     sort: 8
   - first: Helen
     last: Farley
     email: helen.farley@yale.edu
-    title: Field Crew Managers
+    role: Field Crew Managers
     sort: 8
   - first: Jonathan
     last: Palomo
     email: jonathan.palomo@yale.edu
-    title: Field Crew Managers
+    role: Field Crew Managers
     sort: 8
   - first: Darryl
     last: Weimer
     email: darryl.weimer@yale.edu
-    title: Field Crew Managers
+    role: Field Crew Managers
     sort: 8
 faculty:
   - first: Adam
     last: Hopfner
     email: adam.hopfner@yale.edu
-    title: Project Director
+    role: Project Director
     sort: 1
   - first: Kyle
     last: Bradley 
     email: kpbradle@gmail.com
-    title: Assistant Director
+    role: Assistant Director
     sort: 2
   - first: Alan
     last: Organschi
     email: alan.organschi@yale.edu
-    title: Studio Coordinator
+    role: Studio Coordinator
     sort: 3
   - first: Andrew
     last: Benner
-    title: Critic
+    role: Critic
     sort: 4
   - first: Marta
     last: Caldeira
-    title: Critic
+    role: Critic
     sort: 4
   - first: Peter
     last: DeBretteville
-    title: Critic
+    role: Critic
     sort: 4
   - first: Amy
     last: Lelyveld
-    title: Critic
+    role: Critic
     sort: 4
   - first: Joeb
     last: Moore
-    title: Critic
+    role: Critic
     sort: 4
 ----
 text:
