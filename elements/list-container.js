@@ -1,12 +1,6 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
-var hidescroll = css`
-  :host::-webkit-scrollbar {
-    display: none;
-}
-`
-
 module.exports = layout
 
 function layout (col1, col2, col3) {
@@ -18,7 +12,7 @@ function layout (col1, col2, col3) {
     <div class="c3 pr1-5 oa br1-lightgray">
       ${col1}
     </div>
-    <div class="${three ? 'c5' : 'c9'} container oa px1-5 undo-container undo-bottom ${hidescroll}">
+    <div class="${three ? 'c5' : 'c9'} container oa px1-5 undo-container undo-bottom hide-scroll">
       ${col2}
     </div>
     ${container3}

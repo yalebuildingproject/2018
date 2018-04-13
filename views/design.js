@@ -29,7 +29,10 @@ function view (state, emit) {
           var imgs = Object.values(team.files).map(file => {
             return file.source
           })
-          return layout(fmt(team), images(imgs))
+          return html`<div>
+            ${layout(fmt(team), images(imgs))}
+            <div class="my1 bt1-lightgray"></div>
+          </div>`
         })}
       </div>
     </body>`
