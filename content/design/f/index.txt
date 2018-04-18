@@ -1,0 +1,26 @@
+title: Team F
+----
+people:
+  - first: Rosa
+    last: Congdon
+    team: F
+  - first: Deo 
+    last: Deiparine
+    team: F
+  - first: Michael 
+    last: Gasper
+    team: F
+  - first: Megan 
+    last: Tan
+    team: F
+  - first: Brenna 
+    last: Thompson
+    team: F
+  - first: Kay
+    last: Yang
+    team: F
+    
+----
+text:
+
+This project hopes to create a sense of belonging while fostering the autonomy of its residents. Derived from the larger context of the New Haven railroad and river, the idea of the diagonal becomes implemented as an internal organizational principle and underlying grid. The rigidity of the façade is dismantled in layers from the street to backyard, creating dynamic yet private spatial moments for the residents.

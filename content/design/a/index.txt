@@ -25,4 +25,4 @@ people:
 ----
 text:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut massa risus. Maecenas a vehicula est. Vestibulum ultricies consectetur dignissim. Suspendisse potenti. Duis elementum scelerisque ornare. In vel aliquet lorem. Fusce vel leo sed urna pharetra mollis sed at ipsum. Vestibulum quis gravida urna. Fusce ultricies accumsan lacinia. Aliquam mollis nibh ut ullamcorper pharetra. Fusce in elit auctor, imperdiet mi in, sagittis tellus. Praesent sed malesuada ligula. Quisque id leo nisl. Integer nec erat eget quam congue tincidunt tristique et lorem.
+Our proposal places the house along the streetside edge of the lot to assert our tenants’ presence on Button Street and provide an enclosed, private backyard. Within the volume, two nodes anchor each distinct households. To provide agency within the separate households, the volume unhooks at each end and re-couples to form a central shared anchor.  The anchors are vertical voids within the space, and bring light through the two units. They alternate with CLT frames to generate a rhythm of structural bays that create intimate enclosures and vertical striations across the volume. 

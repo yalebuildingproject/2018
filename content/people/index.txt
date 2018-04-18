@@ -4,15 +4,18 @@ people:
   - first: Cristina
     last: Anastase
     team: B
+    hometown: Bucharest, Romania
   - first: Michelle
     last: Badr
     team: A
   - first: Katharine
     last: Blackman
     team: H
+    hometown: Calabasas, CA, USA
   - first: Emily
     last: Cass
     team: G
+    hometown: San Diego, CA, USA
   - first: Camille
     last: Chabrol
     team: I
@@ -28,36 +31,46 @@ people:
   - first: Rosa
     last: Congdon
     team: F
+    hometown: Rohoboth, MA, USA
   - first: Gioia
     last: Connell
     team: D
+    hometown: Branford, CT, USA
   - first: Ruchi
     last: Dattani
     team: C
+    hometown: Hillsborough, NJ, USA
   - first: Deo
     last: Deiparine
     team: F
+    hometown: Hartford, CT, USA
   - first: Clara
     last: Domange
     team: D
+    hometown: Paris, France
   - first: Miriam
     last: Dreiblatt
     team: E
+    hometown: New York, NY, USA
   - first: Helen
     last: Farley
     team: A
   - first: Adam
     last: Feldman
     team: B
+    hometown: Dix Hills, NY, USA
   - first: Nathan
     last: Garcia
     team: C
+    hometown: Austin, TX, USA
   - first: Michael
     last: Gasper
     team: F
+    hometown: Noblesville, IN, USA
   - first: Michael
     last: Glassman
     team: E
+    hometown: Louisville, KT, USA
   - first: Tianyu
     last: Guan
     team: A
@@ -68,75 +81,96 @@ people:
   - first: Will
     last: James
     team: D
+    hometown: Redwood City, CA, USA
   - first: Kelley
     last: Johnson
     team: B
+    hometown: Calistoga, CA, USA
   - first: Andrew
     last: Kim
     team: A
   - first: Katie
     last: Lau
     team: C
+    hometown: Cincinnati, OH, USA
   - first: Eunice
     last: Lee
     team: D
+    hometown: Los Angeles, CA, USA
   - first: Rachel
     last: Lefevre
     team: G
+    hometown: Bloomfield, MI, USA
   - first: Zack
     last: Lenza
     team: D
+    hometown: Staten Island, NY, USA
   - first: Jackson
     last: Lindsay
     team: H
+    hometown: Vancouver, Canada
   - first: Matthew
     last: Liu
     team: H
+    hometown: Sydney, Australia
   - first: Thomas
     last: Mahon
     team: G
+    hometown: London, Canada
   - first: Andrew
     last: Miller
     team: A
   - first: Layla
     last: Ni
     team: B
+    hometown: Wuhan, China
   - first: Max
     last: Ouellette-Howitz
     team: D
+    hometown: Minneapolis, MN, USA
   - first: Jonathan
     last: Palomo
     team: A
   - first: Christine
     last: Pan
     team: G
+    hometown: Basking Ridge, NJ, USA
   - first: Alix
     last: Pauchet
     team: C
+    hometown: Meudon, France
   - first: Jewel
     last: Pei
     team: H
+    hometown: Shanghai, China
   - first: Alex
     last: Pineda
     team: E
+    hometown: Guatemala City, Guatemala
   - first: Deirdre
     last: Plaus
     team: B
+    hometown: Denver, CO, USA
   - first: Manasi
     last: Punde
     team: D
+    hometown: New Delhi, India
   - first: Kelsey
     last: Rico
     team: C
+    hometown: Silverdale, WA, USA
   - first: Jenna
     last: Ritz
     team: B
+    hometown: Thousand Oaks, CA, USA
   - first: Limy
     last: Rocha
     team: E
+    hometown: Bogota, Colombia
   - first: David
     last: Schaengold
     team: H
+    hometown: Cincinnati, OH, USA
   - first: Rhea
     last: Schmid
     team: I
@@ -144,21 +178,27 @@ people:
   - first: Armaan
     last: Shah
     team: B
+    hometown: Tokyo, Japan
   - first: Baolin
     last: Shen
     team: E
+    hometown: Wuhan, China
   - first: Maya
     last: Sorabjee
     team: H
+    hometown: Bombay, India
   - first: Arghavan
     last: Taheri
     team: H
+    hometown: Tehran, Iran
   - first: Megan
     last: Tan
     team: F
+    hometown: Toronto, Canada
   - first: Brenna
     last: Thompson
     team: F
+    hometown: Grand Haven, MI, USA
   - first: Seth
     last: Thompson
     team: I
@@ -166,21 +206,27 @@ people:
   - first: Lissette
     last: Valenzuela
     team: G
+    hometown: Irvine, CA, USA
   - first: Rukshan
     last: Vathupola
     team: C
+    hometown: Kandy, Sri Lanka
   - first: Laelia
     last: Vaulot
     team: A
   - first: Darryl
     last: Weimer
     team: C
+    hometown: Alexandria, MN, USA
   - first: Xiaohui
     last: Wen
     team: E
+    hometown: Changsha, China
   - first: Paul
     last: Wu
     team: G
+    hometown: Franklin, TN, USA
   - first: Kay
     last: Yang
     team: F
+    hometown: Manila, Philippines

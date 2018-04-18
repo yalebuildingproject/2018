@@ -1,0 +1,26 @@
+title: Team G
+----
+people:
+  - first: Emily
+    last: Cass
+    team: G
+  - first: Rachel
+    last: LeFevre
+    team: G
+  - first: Thomas
+    last: Mahon
+    team: G
+  - first: Christine
+    last: Pan
+    team: G
+  - first: Lisette
+    last: Valenzuela
+    team: G
+  - first: Paul 
+    last: Wu
+    team: G
+
+----
+text:
+
+Our proposal explores the parallel between joinery and cohabitation, proposing a dwelling that unites separate units within a single envelope, while still allowing each family to maintain autonomy. Cross-laminated timber forms the internal separation, extending into the landscape to integrate the house with its surroundings. 

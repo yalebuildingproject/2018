@@ -1,0 +1,28 @@
+title: Team H
+----
+people:
+  - first: Katharine
+    last: Blackman
+    team: H
+  - first: Jackson
+    last: Lindsay
+    team: H
+  - first: Matthew
+    last: Liu
+    team: H
+  - first: Jewel
+    last: Pei
+    team: H
+  - first: David 
+    last: Schaengold
+    team: H
+  - first: Maya
+    last: Sorabjee
+    team: H
+  - first: Arghavan
+    last: Taheri
+    team: H
+----
+text:
+
+Our proposal translates the spatial condition within the neighborhood to the scale of the site, creating a system of striations that organize the program and set up an adaptable framework for future expansion. These striations form a home that connects its residents via a shared spine, while giving each household the means to grow into their homes.

@@ -1,0 +1,26 @@
+title: Team E
+----
+people:
+  - first: Miriam 
+    last: Dreiblatt
+    team: E
+  - first: Michael 
+    last: Glassman
+    team: E
+  - first: Alex 
+    last: Pineda Jongeward
+    team: E
+  - first: Limy
+    last: Rocha
+    team: E
+  - first: Paul 
+    last: Shen
+    team: E
+  - first: Xiaohui
+    last: Wen
+    team: E
+    
+----
+text:
+
+Our project explores possible equity in response to external and internal asymmetries, and their implied sidedness. By defining a set of internal imperatives for each unit and navigating within a fixed boundary, the two units begin to reach through and around each other, interlocking to form a single building.

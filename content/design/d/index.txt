@@ -1,0 +1,29 @@
+title: Team D
+----
+people:
+  - first: Gioia
+    last: Connell
+    team: D
+  - first: Clara
+    last: Domange
+    team: D
+  - first: Will
+    last: James
+    team: D
+  - first: Eunice
+    last: Lee
+    team: D
+  - first: Zack 
+    last: Lenza
+    team: D
+  - first: Max
+    last: Ouellete-Howitz
+    team: D
+  - first: Manasi
+    last: Punde
+    team: D
+
+----
+text:
+
+A central breezeway branches into a tree-like cross-laminated timber structure,  establishing a strong connection to the outside as it moves through the house. These connections allow an otherwise private house with specific household identities to extend visually and spatially into the outdoors.
