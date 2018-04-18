@@ -15,6 +15,7 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   var schedule = state.site.pages.home.schedule
+  var images = Object.values(state.site.pages.home.files)
 
   var col1 = html`<div>
     <p>Schedule:</p>
@@ -33,6 +34,6 @@ function view (state, emit) {
   return html`
     <body class="ff-sans px1-5">
       ${header('/')}
-      ${container(col1, timeline.render())}
+      ${container(col1, timeline.render(images, schedule))}
     </body>`
 }

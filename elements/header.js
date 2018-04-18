@@ -40,10 +40,10 @@ function header (page) {
   }
 
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
-    <div class="c3">
-      <span class="di">Jim Vlock Building Project 2018</span>
+    <div lg="c3" class="s2">
+      <span class="di"><span sm="di" class="dn">Jim Vlock </span>Building Project 2018</span>
     </div>
-    <div class="c3 co3">
+    <div lg="c3 co3" class="s2">
       <div class="x ${menu}">
         <ul>
           <li class="pr1">
@@ -71,7 +71,7 @@ function header (page) {
         </ul>
       </div>
     </div>
-    <div class="c2 co1 c-gray">
+    <div lg="db" class="c2 co1 c-gray dn">
       ${sidetext}
     </div>
   </header>`

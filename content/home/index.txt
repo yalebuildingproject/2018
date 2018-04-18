@@ -2,27 +2,27 @@ title: Home
 ----
 schedule:
   - title: Building Project Kickoff
-    date: [2018, 2, 26]
+    date: 2018-02-26
     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt dictum erat sed viverra.
   - title: Schematic Review
-    date: [2018, 3, 26]
+    date: 2018-03-26
     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt dictum erat sed viverra.
   - title: Design Review
-    date: [2018, 4, 12]
+    date: 2018-04-12
     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt dictum erat sed viverra.
   - title: Final Review & Project Selection
-    date: [2018, 4, 30]
+    date: 2018-04-30
     duration: 2
     description:
   - title: Groundbreaking
-    date: [2018, 5, 14]
+    date: 2018-05-14
     description:
   - title: Summer Internship Begins
-    date: [2018, 7, 2]
+    date: 2018-07-2
     description:
   - title: Construction Ends
-    date: [2018, 8]
+    date: 2018-08
     description:
   - title: Open House Party
-    date: [2018, 9]
+    date: 2018-09
     description:
