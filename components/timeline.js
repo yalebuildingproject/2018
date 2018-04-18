@@ -37,15 +37,15 @@ class Timeline extends Nanocomponent {
 
   createElement (images, entries) {
     this.entries = entries
-    images = utils.sortDate(images)
-    this.min = images[0].date
+    this.images = utils.sortDate(images)
+    this.min = this.images[0].date
     this.max = new Date()
     var range = subDays(this.max, this.min)
 
     return html`<div class="x xdc h100">
       <div class="xx x xjc xac">
         <div class="c6">
-          <img class="mx100" src="/content/home/28153710_2007373269532073_9151033131048894464_n.jpg">
+          <img class="mx100 my100">
         </div>
 
       </div>
@@ -61,6 +61,9 @@ class Timeline extends Nanocomponent {
       this.element.addEventListener(e, this.tick, false)
     })
     window.addEventListener('resize', debounce(this.tick, 10), false)
+    var input = this.element.querySelector('input')
+    input.value = input.max
+    this.tick()
   }
 
   unload () {
@@ -73,13 +76,17 @@ class Timeline extends Nanocomponent {
   tick () {
     var input = this.element.querySelector('input')
     var output = this.element.querySelector('output')
+    var img = this.element.querySelector('img')
     var range = input.max - input.min
     var percent = 1 - (input.value - input.min) / range
     var elWidth = output.offsetWidth
     var totalWidth = input.offsetWidth - elWidth
     var offset = (percent * totalWidth)
     output.style.transform = `translate(${-Math.floor(offset)}px)`
-    output.innerHTML = label(addDays(this.min, input.value))
+    var date = addDays(this.min, input.value)
+    output.innerHTML = label(date)
+    var image = closest(this.images, date)
+    img.src = image.source
   }
 
   update (images, entries) {
@@ -93,4 +100,16 @@ module.exports = Timeline
 
 function label (date) {
   return `← ${format(date, 'MM/DD/YYYY')} →`
+}
+
+function closest (images, date) {
+  var out = images[0]
+  for (var image of images) {
+    if (image.date <= date) {
+      out = image
+    } else {
+      return out
+    }
+  }
+  return out
 }

@@ -13,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 var site = hypha.readSiteSync('./content', opts)
 
 css('ress')
+css('leaflet')
 css('./assets/css/css.js')
 css('./assets/css/base.css')
 css('./assets/fonts/lunchtype22.css')

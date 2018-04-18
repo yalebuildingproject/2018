@@ -69,7 +69,8 @@ opts.utils.push({
 
 opts.utils.push({
   prop: {
-    mx: 'max-width'
+    mx: 'max-width',
+    my: 'max-height'
   },
   unit: '%',
   vals: [100]

@@ -19,7 +19,7 @@ function view (state, emit) {
 
   utils.shuffle(teams)
 
-  //lightbox(Object.values(teams[0].files)[0])
+  // lightbox(Object.values(teams[0].files)[0])
 
   return html`
     <body class="ff-sans px1-5 pb1">
@@ -30,7 +30,7 @@ function view (state, emit) {
             return file.source
           })
           return html`<div>
-            ${layout(fmt(team), images(imgs))}
+            ${layout(text(team), images(imgs))}
             <div class="my1 bt1-lightgray"></div>
           </div>`
         })}
@@ -38,15 +38,15 @@ function view (state, emit) {
     </body>`
 }
 
-function fmt(team) {
+function text(team) {
   return html`<div>
     <h1 class="mb0-75 fs3-2 ttu">${team.name}</h1>
     <div class="x">
-    <ul class="s2 mb2">
-      ${team.people.map(person => {
-        return html`<li class="hang-indent">${utils.fullname(person.first, person.last)}</li>`
-      })}
-    </ul>
+      <ul class="s2 mb2">
+        ${team.people.map(person => {
+          return html`<li class="hang-indent">${utils.fullname(person.first, person.last)}</li>`
+        })}
+      </ul>
     </div>
     <p class="fs0-9">${raw(team.html)}</p>
   </div>`

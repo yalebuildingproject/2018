@@ -20,6 +20,7 @@ function view (state, emit) {
       <li><a href="#" class="dib ${(state.sortPeople == 'first') ? 'tdu' : ''} tdu-hover" data-method="first" onclick=${sort}>First Name</a></li>
       <li><a href="#" class="dib ${(state.sortPeople == 'last') ? 'tdu' : ''} tdu-hover" data-method="last" onclick=${sort}>Last Name</a></li>
       <li><a href="#" class="dib ${(state.sortPeople == 'team') ? 'tdu' : ''} tdu-hover" data-method="team" onclick=${sort}>Team</a></li>
+      <li><a href="#" class="dib ${(state.sortPeople == 'hometown') ? 'tdu' : ''} tdu-hover" data-method="hometown" onclick=${sort}>Hometown</a></li>
     </ul>
   </div>`
 
@@ -34,9 +35,16 @@ function view (state, emit) {
           first = true
         }
       }
+      var detail = ''
+      if (first) {
+        detail = `Team ${person.team}`
+      } else if (state.sortPeople == 'hometown') {
+        detail = person.hometown
+      }
+
       return html`<div class="c12 x xjb">
         <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="c4 fs1-6 c-gray">${(first) ? `Team ${person.team}` : ''}</div>
+        <div class="c4 fs1-6 c-gray">${detail}</div>
       </div>`
     })}
   </div>`

@@ -8,6 +8,7 @@ people:
   - first: Michelle
     last: Badr
     team: A
+    hometown: San Francisco, CA, USA
   - first: Katharine
     last: Blackman
     team: H
@@ -55,6 +56,7 @@ people:
   - first: Helen
     last: Farley
     team: A
+    hometown: New Orleans, LA, USA
   - first: Adam
     last: Feldman
     team: B
@@ -74,6 +76,7 @@ people:
   - first: Tianyu
     last: Guan
     team: A
+    hometown: Beijing, China
   - first: Phoebe
     last: Harris
     team: I
@@ -89,6 +92,7 @@ people:
   - first: Andrew
     last: Kim
     team: A
+    hometown: Trabuco Canyon, CA, USA
   - first: Katie
     last: Lau
     team: C
@@ -120,6 +124,7 @@ people:
   - first: Andrew
     last: Miller
     team: A
+    hometown: Warren, OH, USA
   - first: Layla
     last: Ni
     team: B
@@ -131,6 +136,7 @@ people:
   - first: Jonathan
     last: Palomo
     team: A
+    hometown: San Jose, Costa Rica
   - first: Christine
     last: Pan
     team: G
@@ -214,6 +220,7 @@ people:
   - first: Laelia
     last: Vaulot
     team: A
+    hometown: Paris, France
   - first: Darryl
     last: Weimer
     team: C

@@ -2,6 +2,10 @@ var html = require('choo/html')
 var raw = require('choo/html/raw')
 var css = require('sheetify')
 
+var Leaflet = require('../components/leaflet')
+
+var leaflet = new Leaflet()
+
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
 
@@ -16,16 +20,16 @@ function view (state, emit) {
 
   var col2 = html`<div>
     <div class="px4 pb2">
-      <div class="x" style="padding-left: 5rem; padding-right: 2rem;">
-        <div class="p0-25">
-          <img class="mx100" src="/content/about/20180871_411898995872968_3415214340008050688_n.jpg">
+      <div class="x" style="padding-right: 8rem;">
+        <div class="p0-25 w100">
+          ${leaflet.render([41.292086, -72.936191])}
         </div>
       </div>
     </div>
     <div class="px4">
-      <div class="x" style="padding-right: 8rem;">
+      <div class="x" style="padding-left: 5rem; padding-right: 2rem;">
         <div class="p0-25">
-          <img class="mx100" src="/content/about/map.jpg">
+          <img class="mx100" src="/content/about/20180871_411898995872968_3415214340008050688_n.jpg">
         </div>
       </div>
     </div>
