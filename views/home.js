@@ -28,15 +28,16 @@ function view (state, emit) {
 
   var col1 = html`<div>
     <p>Schedule:</p>
-    <div>
+    <table>
       ${schedule.map(entry => {
-        var hover = (entry.date > new Date()) ? notAllowed : 'tdu-hover'
-        return html`<dl class="x xjb">
-          <dt class="dib">${format(entry.date, 'M/DD')}</dt>
-          <dd><a class="dib ${hover}" href="#">${entry.title}</a></dd>
-        </dl>`
+        var active = (entry.date < new Date())
+        var hover = active ? 'tdu-hover' : notAllowed
+        return html`<tr>
+          <td class="dib mr1">${format(entry.date, 'M/DD')}</td>
+          <td><a class="dib ${hover} ${active ? 'active' : ''}" data-date="${entry.date}" href="#">${entry.title}</a></td>
+        </tr>`
       })}
-    </div>
+    </table>
   </div>`
 
   return html`

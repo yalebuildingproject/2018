@@ -7,6 +7,39 @@ var container = require('../elements/list-container')
 
 var TITLE = 'People - Building Project 2018'
 
+var marquee = css`
+
+  :host #container {
+    overflow: hidden;
+  }
+
+  :host:hover #content {
+    width: 175%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+     -webkit-transition: transform 2s linear, width 2s linear;
+    -moz-transition: transform 2s linear, width 2s linear;
+    transition: transform 2s linear, width 2s linear;
+  }
+
+  :host #content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    will-change: transform;
+     -webkit-transition: transform .5s linear, width .5s linear;
+    -moz-transition: transform .5s linear, width .5s linear;
+    transition: transform .5s linear, width .5s linear;
+  }
+`
+
+var crosshair = css`
+  :host {
+    cursor: crosshair;
+  }
+`
+
 module.exports = view
 
 function view (state, emit) {
@@ -26,7 +59,7 @@ function view (state, emit) {
 
   var history = {}
 
-  var col2 = html`<div>
+  var col2 = html`<div class="${crosshair}">
     ${people.map(person => {
       var first = false
       if (state.sortPeople == 'team') {
@@ -42,9 +75,11 @@ function view (state, emit) {
         detail = person.hometown
       }
 
-      return html`<div class="c12 x xjb">
+      return html`<div class="c12 x xjb ${marquee}">
         <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="c4 fs1-6 c-gray">${detail}</div>
+        <div id="container" class="c4 fs1-6 c-gray">
+          <div id="content">${detail}</div>
+        </div>
       </div>`
     })}
   </div>`

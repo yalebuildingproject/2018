@@ -33,12 +33,13 @@ class Timeline extends Nanocomponent {
     super()
     this.entries = []
     this.tick = this.tick.bind(this)
+    this.click = this.click.bind(this)
   }
 
   createElement (images, entries) {
-    this.entries = entries
+    this.entries = utils.sortDate(entries)
     this.images = utils.sortDate(images)
-    this.min = this.images[0].date
+    this.min = this.entries[0].date
     this.max = new Date()
     var range = subDays(this.max, this.min)
 
@@ -60,6 +61,7 @@ class Timeline extends Nanocomponent {
     ['input', 'change', 'keyup'].forEach(e => {
       this.element.addEventListener(e, this.tick, false)
     })
+    this.register()
     window.addEventListener('resize', debounce(this.tick, 10), false)
     var input = this.element.querySelector('input')
     input.value = input.max
@@ -68,9 +70,34 @@ class Timeline extends Nanocomponent {
 
   unload () {
     ['input', 'change', 'keyup'].forEach(e => {
-      this.element.removeEventListener(e, this.tick)
+      if (this.element) {
+        this.element.removeEventListener(e, this.tick)
+      }
     })
+    this.unregister()
     window.removeEventListener('resize', debounce(this.tick, 10))
+  }
+
+  register () {
+    var links = document.querySelectorAll('a.active');
+    links.forEach(link => {
+      link.addEventListener('click', this.click, false)
+    })
+  }
+
+  unregister () {
+    var links = document.querySelectorAll('a.active');
+    links.forEach(link => {
+      link.removeEventListener('click', this.click)
+    })
+  }
+
+  click (e) {
+    debugger;
+    var date = e.target.dataset.date
+    var input = this.element.querySelector('input')
+    input.value = subDays(date, this.min)
+    this.tick()
   }
 
   tick () {
@@ -92,6 +119,8 @@ class Timeline extends Nanocomponent {
   update (images, entries) {
     this.images = images
     this.entries = entries
+    this.unregister()
+    this.register()
     return false
   }
 }

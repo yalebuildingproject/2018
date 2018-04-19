@@ -3,7 +3,7 @@ var gr8 = require('gr8')
 var opts = {
   utils: [],
   spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4, 5, 6],
-  fontSize: [0.75, 0.9, 1, 1.2, 1.6, 2.4, 3.2, 6.4]
+  fontSize: [0.75, 0.8, 0.9, 1, 1.2, 1.6, 2.4, 3.2, 6.4]
 }
 
 var colors = {

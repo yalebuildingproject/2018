@@ -40,9 +40,9 @@ function view (state, emit) {
 
 function text(team) {
   return html`<div>
-    <h1 class="mb0-75 fs3-2 ttu">${team.name}</h1>
+    <h1 class="m0-75 fs3-2 ttu">${team.name}</h1>
     <div class="x">
-      <ul class="s2 mb2">
+      <ul class="mb2">
         ${team.people.map(person => {
           return html`<li class="hang-indent">${utils.fullname(person.first, person.last)}</li>`
         })}

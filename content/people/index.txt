@@ -32,7 +32,7 @@ people:
   - first: Rosa
     last: Congdon
     team: F
-    hometown: Rohoboth, MA, USA
+    hometown: Rehoboth, MA, USA
   - first: Gioia
     last: Connell
     team: D
