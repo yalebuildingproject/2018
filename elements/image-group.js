@@ -33,7 +33,7 @@ function single(img) {
   return html`<div class="px4">
     <div class="x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
       <div class="p0-25">
-        <img class="mx100" src="${img}">
+        <img class="thumb mx100" data-source="${img}" src="${img}">
       </div>
     </div>
   </div>`
@@ -45,10 +45,10 @@ function split(img1, img2) {
   return html`<div class="px4">
     <div class="x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
       <div class="p0-25" style="width: ${s + '%'};">
-        <img class="mx100" src="${img1}">
+        <img class="thumb mx100" data-source="${img1}" src="${img1}">
       </div>
       <div class="p0-25" style="width: ${100 - s + '%'};">
-        <img class="mx100" src="${img2}">
+        <img class="thumb mx100" data-source="${img2}" src="${img2}">
       </div>
     </div>
   </div>`

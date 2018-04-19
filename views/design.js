@@ -6,7 +6,9 @@ var utils = require('../lib/utils')
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
 var images = require('../elements/image-group')
-var lightbox = require('../elements/lightbox')
+
+var Lightbox = require('../components/lightbox')
+var lightbox = new Lightbox()
 
 var TITLE = 'Design - Building Project 2018'
 
@@ -18,8 +20,6 @@ function view (state, emit) {
   var teams = Object.values(state.site.pages.design.pages)
 
   utils.shuffle(teams)
-
-  // lightbox(Object.values(teams[0].files)[0])
 
   return html`
     <body class="ff-sans px1-5 pb1">
@@ -35,6 +35,7 @@ function view (state, emit) {
           </div>`
         })}
       </div>
+      ${lightbox.render()}
     </body>`
 }
 
