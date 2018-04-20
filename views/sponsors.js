@@ -4,6 +4,7 @@ var css = require('sheetify')
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
+var utils = require('../lib/utils')
 
 var TITLE = 'Sponsors - Building Project 2018'
 
@@ -14,14 +15,16 @@ var bw = css`
   }
 
   :host:hover {
-    -webkit-filter: blur(0px) !important;
-    filter: blur(0px) !important;
+    opacity: 1 !important;
+    -webkit-filter: none !important;
+    filter: none !important;
   }
 `
 
 var blur = css`
   :host:hover img {
-    filter: blur(5px) grayscale(100%);
+    opacity: 0.5;
+    filter: grayscale(100%);
   }
 `
 
@@ -31,12 +34,15 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   var sponsors = state.site.pages.sponsors
+  var files = Object.values(sponsors.files)
 
-  var imgs = Object.values(sponsors.files).map(file => {
+  utils.shuffle(files)
+
+  var imgs = files.map(file => {
             return file.source
           })
 
-  var col2 = html`<div class="px1-5 x xw xjs ${blur}" style="margin-top: -4rem">
+  var col2 = html`<div class="px1-5 x xw xjs ${blur}">
     ${imgs.map(src => {return image(src)})}
   </div>`
 
@@ -50,7 +56,6 @@ function view (state, emit) {
 }
 
 function image(src) {
-  var rand = Math.random() * 8
   return html`<div class="c3">
         <div class="p0-5">
           <img class="mx100 ${bw}" width="240" height="auto" src="${src}">
