@@ -38,11 +38,12 @@ class Lightbox extends Nanocomponent {
 
   unload () {
     this.unregister()
-    var close = this.element.querySelector('a.close')
-    close.removeEventListener('click', this.close)
-    var img = this.element.querySelector('img')
-    img.removeEventListener('click', this.close)
-
+    if (this.element) {
+       var close = this.element.querySelector('a.close')
+      close.removeEventListener('click', this.close)
+      var img = this.element.querySelector('img')
+      img.removeEventListener('click', this.close)
+    }
   }
 
   noscroll (e) {

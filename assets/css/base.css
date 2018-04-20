@@ -82,6 +82,14 @@ table {
   text-decoration: none;
 }
 
+.tdu-hover-gray:hover {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'><rect width='1' height='1' style='fill:#808080'/></svg>");
+  background-repeat: repeat-x;
+  background-position: 0 85%;
+  background-size: 1px;
+  text-decoration: none;
+}
+
 .indent-c > :not(:first-child) {
     text-indent: 1rem;
 }

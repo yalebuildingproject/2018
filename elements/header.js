@@ -36,7 +36,9 @@ function header (page) {
   if (page == '/design') {
     sidetext = html`<div>Proposals from<br>Team A, B, C, D, E, F, G, H, I</div>`
   } else {
-    sidetext = html`<div>43 Button Street<br>New Haven, CT 06519</div>`
+    sidetext = html`<div>
+      <p>43 Button Street<br><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/">@yalebuildingproject2018</a></p>
+      </div>`
   }
 
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">

@@ -6,6 +6,7 @@ module.exports = layout
 function layout (col1, col2, col3) {
   var three = (typeof col3 !== "undefined")
   var container3 = three ? html`<div class="c4 pl1-5 bl1-lightgray">
+      ${col3}
     </div>` : ''
 
   return html`<div class="container pb1 x vh100">

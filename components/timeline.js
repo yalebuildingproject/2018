@@ -48,7 +48,6 @@ class Timeline extends Nanocomponent {
         <div class="c6">
           <img class="mx100 my100">
         </div>
-
       </div>
       <form class="psr bt1-lightgray">
         <input class="w100 ${slider}" type="range" name="date" id="date" min="0" max="${range}" step="1">
