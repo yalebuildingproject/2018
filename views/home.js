@@ -30,6 +30,7 @@ function view (state, emit) {
     <p>Schedule:</p>
     <table>
       ${schedule.map(entry => {
+        debugger;
         var active = (entry.date < new Date())
         var hover = active ? 'tdu-hover' : notAllowed
         return html`<tr>

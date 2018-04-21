@@ -45,7 +45,7 @@ class Timeline extends Nanocomponent {
 
     return html`<div class="x xdc h100">
       <div class="xx x xjc xac">
-        <div class="c6">
+        <div class="c8">
           <img class="mx100 my100">
         </div>
       </div>
@@ -92,7 +92,6 @@ class Timeline extends Nanocomponent {
   }
 
   click (e) {
-    debugger;
     var date = e.target.dataset.date
     var input = this.element.querySelector('input')
     input.value = subDays(date, this.min)
@@ -113,6 +112,13 @@ class Timeline extends Nanocomponent {
     output.innerHTML = label(date)
     var image = closest(this.images, date)
     img.src = image.source
+    if (image.data && image.data.aspect == 'vertical') {
+      img.parentNode.classList.remove('c8')
+      img.parentNode.classList.add('c4')
+    } else {
+      img.parentNode.classList.remove('c4')
+      img.parentNode.classList.add('c8')
+    }
   }
 
   update (images, entries) {

@@ -37,13 +37,13 @@ function header (page) {
     sidetext = html`<div>Proposals from<br>Team A, B, C, D, E, F, G, H, I</div>`
   } else {
     sidetext = html`<div>
-      <p>43 Button Street<br><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/">@yalebuildingproject2018</a></p>
+      <p>43 Button Street<br><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">@yalebuildingproject2018</a></p>
       </div>`
   }
 
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
     <div lg="c3" class="s2">
-      <span class="di"><span sm="di" class="dn">Jim Vlock </span>Building Project 2018</span>
+      <span class="di"><span sm="di" class="dn">Jim Vlock </span>Building Project</span>
     </div>
     <div lg="c3 co3" class="s2">
       <div class="x ${menu}">
