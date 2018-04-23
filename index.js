@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use((state, emitter) => {
+  utils.normalizeDates(site)
   state.page = new Page({
     content: site
   })

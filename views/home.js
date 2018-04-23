@@ -23,7 +23,7 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var schedule = utils.sortDate(state.page('/content/home').v('schedule'))
+  var schedule = state.page('/content/home').v('schedule')
   var images = state.page('/content/home').images().toArray()
 
   var col1 = html`<div>

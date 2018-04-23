@@ -43,7 +43,6 @@ function transform (filename) {
         var siteSync = hypha.readSiteSync(pathDir, opts)
 
         siteSync = removeResponsiveImages(siteSync)
-        debugger;
         var stream = through()
         stream.push(JSON.stringify(siteSync, { }, 2))
         stream.push(null)

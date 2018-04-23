@@ -2,6 +2,10 @@ var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
 
+var Picture = require('../components/picture')
+
+var picture = new Picture()
+
 var debounce = require('lodash/debounce')
 var format = require('date-fns/format')
 var subDays = require('date-fns/difference_in_days')
@@ -31,22 +35,22 @@ var slider = css`
 class Timeline extends Nanocomponent {
   constructor () {
     super()
-    this.entries = []
-    this.tick = this.tick.bind(this)
+    this.schedule = []
+    this.changeDate = this.changeDate.bind(this)
     this.click = this.click.bind(this)
   }
 
-  createElement (images, entries) {
-    this.entries = utils.sortDate(entries)
-    this.images = utils.sortDate(images)
-    this.min = this.entries[0].date
+  createElement (images, schedule) {
+    this.schedule = schedule
+    this.images = utils.sortByDataDate(images)
+    this.min = this.schedule[0].date
     this.max = new Date()
     var range = subDays(this.max, this.min)
 
     return html`<div class="x xdc h100">
       <div class="xx x xjc xac">
-        <div class="c8">
-          <img class="mx100 my100">
+        <div id="container" class="c8">
+          ${picture.render(closest(this.images, this.max))}
         </div>
       </div>
       <form class="psr bt1-lightgray">
@@ -58,23 +62,32 @@ class Timeline extends Nanocomponent {
 
   load () {
     ['input', 'change', 'keyup'].forEach(e => {
-      this.element.addEventListener(e, this.tick, false)
+      this.element.addEventListener(e, this.changeDate, false)
     })
     this.register()
-    window.addEventListener('resize', debounce(this.tick, 10), false)
+    window.addEventListener('resize', debounce(this.changeDate, 10), false)
     var input = this.element.querySelector('input')
     input.value = input.max
-    this.tick()
+    this.changeDate()
+    this.prefetch()
   }
 
-  unload () {
+  prefetch () {
+    Object.values(this.images).map(image => {
+      image.buffer = html`<picture>
+          ${utils.sourceTag(image, 'image/webp')}
+          ${utils.sourceTag(image, 'image/jpeg')}
+          <img src="${image.source}">
+        </picture>`
+    })
+  }
+
+  unload (element) {
     ['input', 'change', 'keyup'].forEach(e => {
-      if (this.element) {
-        this.element.removeEventListener(e, this.tick)
-      }
+      element.removeEventListener(e, this.changeDate)
     })
     this.unregister()
-    window.removeEventListener('resize', debounce(this.tick, 10))
+    window.removeEventListener('resize', debounce(this.changeDate, 10))
   }
 
   register () {
@@ -95,13 +108,12 @@ class Timeline extends Nanocomponent {
     var date = e.target.dataset.date
     var input = this.element.querySelector('input')
     input.value = subDays(date, this.min)
-    this.tick()
+    this.changeDate()
   }
 
-  tick () {
+  changeDate () {
     var input = this.element.querySelector('input')
     var output = this.element.querySelector('output')
-    var img = this.element.querySelector('img')
     var range = input.max - input.min
     var percent = 1 - (input.value - input.min) / range
     var elWidth = output.offsetWidth
@@ -111,19 +123,20 @@ class Timeline extends Nanocomponent {
     var date = addDays(this.min, input.value)
     output.innerHTML = label(date)
     var image = closest(this.images, date)
-    img.src = image.source
-    if (image.data && image.data.aspect == 'vertical') {
-      img.parentNode.classList.remove('c8')
-      img.parentNode.classList.add('c4')
+    picture.render(image)
+    var container = this.element.querySelector('#container')
+    if (image.data && image.data.aspect < 1) {
+      container.classList.remove('c8')
+      container.classList.add('c4')
     } else {
-      img.parentNode.classList.remove('c4')
-      img.parentNode.classList.add('c8')
+      container.classList.remove('c4')
+      container.classList.add('c8')
     }
   }
 
-  update (images, entries) {
-    this.images = images
-    this.entries = entries
+  update (images, schedule) {
+    this.images = utils.sortByDataDate(images)
+    this.schedule = schedule
     this.unregister()
     this.register()
     return false
@@ -139,7 +152,7 @@ function label (date) {
 function closest (images, date) {
   var out = images[0]
   for (var image of images) {
-    if (image.date <= date) {
+    if (image.data.date <= date) {
       out = image
     } else {
       return out

@@ -50,7 +50,7 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var people = state.page('/content/people').value('people')
+  var people = state.page('/content/people').v('people')
   var images = state.page('/content/people').images().v()
 
   var col1 = html`<div>

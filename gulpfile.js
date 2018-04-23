@@ -7,6 +7,7 @@ var probe = require('probe-image-size')
 var Vinyl = require('vinyl')
 var replaceExt = require('replace-ext')
 var del = require('del');
+var merge = require('lodash/merge')
 
 var fs = require('fs')
 
@@ -19,7 +20,7 @@ gulp.task('text', () => {
     .pipe(gulp.dest('content'))
 })
 
-gulp.task('images', () =>
+gulp.task('images', () => {
     return gulp.src('images/**/*.{png,gif,jpg,jpeg}', {base: 'images/'})
       .pipe(metadata())
       .pipe(responsive({
@@ -74,7 +75,7 @@ gulp.task('images', () =>
         strictMatchImages: false
       }))
       .pipe(gulp.dest('content'))
-);
+});
 
 gulp.task('default', gulp.series('clean', gulp.parallel('text', 'images')))
 
@@ -106,7 +107,7 @@ function metadata() {
 function writeAspectRatio(metadata, file, callback) {
   var size = probe.sync(file.contents)
   if (size !== null) {
-    metadata = Object.assign(metadata, {
+    metadata = merge(metadata, {
       data: {
         aspect: (size.width / size.height),
         primary: true
