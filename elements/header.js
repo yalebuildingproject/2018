@@ -1,6 +1,18 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
+var insta = css`
+  :host {
+    height: 1rem;
+  }
+`
+
+var logo = css`
+  :host {
+    height: 3rem;
+  }
+`
+
 var background = css`
   :host {
     background: linear-gradient(
@@ -31,19 +43,9 @@ var menu = css`
 module.exports = header
 
 function header (page) {
-
-  var sidetext
-  if (page == '/design') {
-    sidetext = html`<div>Proposals from<br>Team A, B, C, D, E, F, G, H, I</div>`
-  } else {
-    sidetext = html`<div>
-      <p>Button Street<br><a class="dib tdu-hover" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">@yalebuildingproject2018</a></p>
-      </div>`
-  }
-
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
-    <div lg="c3" class="s2">
-      <span class="di"><span sm="di" class="dn">Jim Vlock </span>Building Project</span>
+    <div lg="c3" class="s2" style="margin-top: -0.3rem;">
+      <img class="${logo}" src="/assets/logo.svg">
     </div>
     <div lg="c3 co3" class="s2">
       <div class="x ${menu}">
@@ -74,7 +76,13 @@ function header (page) {
       </div>
     </div>
     <div lg="db" class="c2 co1 c-gray dn">
-      ${sidetext}
+      <div>
+      <p class="mb0">Button Street</p>
+      <div class="x">
+        <img class="${insta} mr0-25" src="/assets/instagram.svg">
+        <p><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">yalebuildingproject2018</a></p>
+      </div>
+      </div>
     </div>
   </header>`
 }
