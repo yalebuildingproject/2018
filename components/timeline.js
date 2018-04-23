@@ -120,6 +120,8 @@ class Timeline extends Nanocomponent {
     var totalWidth = input.offsetWidth - elWidth
     var offset = (percent * totalWidth)
     output.style.transform = `translate(${-Math.floor(offset)}px)`
+    output.style['-webkit-transform'] = `translate(${-Math.floor(offset)}px)`
+    output.style['-ms-transform'] = `translate(${-Math.floor(offset)}px)`
     var date = addDays(this.min, input.value)
     output.innerHTML = label(date)
     var image = closest(this.images, date)

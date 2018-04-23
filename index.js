@@ -14,7 +14,6 @@ if (process.env.NODE_ENV !== 'production') {
 var site = hypha.readSiteSync('./content', opts)
 
 css('ress')
-css('leaflet')
 css('./assets/css/css.js')
 css('./assets/css/base.css')
 css('./assets/fonts/lunchtype22.css')
@@ -25,6 +24,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use((state, emitter) => {
+  if (process.env.NODE_ENV !== 'production') {
+    var removeResponsive = require('./transforms/removeResponsive')
+    site = removeResponsive(site)
+  }
   utils.normalizeDates(site)
   state.page = new Page({
     content: site

@@ -22,8 +22,7 @@ var marquee = css`
     width: 175%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-     -webkit-transition: transform 2s linear, width 2s linear;
-    -moz-transition: transform 2s linear, width 2s linear;
+    -ms-transform: translateX(-50%);
     transition: transform 2s linear, width 2s linear;
   }
 
@@ -33,8 +32,6 @@ var marquee = css`
     text-overflow: ellipsis;
     width: 100%;
     will-change: transform;
-     -webkit-transition: transform .5s linear, width .5s linear;
-    -moz-transition: transform .5s linear, width .5s linear;
     transition: transform .5s linear, width .5s linear;
   }
 `

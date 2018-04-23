@@ -2,11 +2,7 @@ var html = require('choo/html')
 var raw = require('choo/html/raw')
 var css = require('sheetify')
 
-var Leaflet = require('../components/leaflet')
 var Picture = require('../components/picture')
-
-var leaflet = new Leaflet()
-
 var picture = new Picture()
 
 var header = require('../elements/header')
@@ -27,7 +23,7 @@ function view (state, emit) {
     <div class="px4 pb2">
       <div class="x" style="padding-right: 8rem;">
         <div class="p0-25 w100">
-          ${leaflet.render([41.292086, -72.936191])}
+          <iframe class="w100" style="height: 300px;" src="/assets/map.html" frameborder="0" marginheight="0" marginwidth="0"></iframe>
         </div>
       </div>
     </div>
