@@ -37,7 +37,7 @@ function header (page) {
     sidetext = html`<div>Proposals from<br>Team A, B, C, D, E, F, G, H, I</div>`
   } else {
     sidetext = html`<div>
-      <p>43 Button Street<br><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">@yalebuildingproject2018</a></p>
+      <p>Button Street<br><a class="dib tdu-hover" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">@yalebuildingproject2018</a></p>
       </div>`
   }
 
