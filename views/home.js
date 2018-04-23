@@ -5,7 +5,6 @@ var format = require('date-fns/format')
 
 var header = require('../elements/header')
 var container = require('../elements/list-container')
-var utils = require('../lib/utils')
 
 var Timeline = require('../components/timeline')
 var timeline = new Timeline()

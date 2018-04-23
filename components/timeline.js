@@ -46,11 +46,12 @@ class Timeline extends Nanocomponent {
     this.min = this.schedule[0].date
     this.max = new Date()
     var range = subDays(this.max, this.min)
+    var image = closest(this.images, this.max)
 
     return html`<div class="x xdc h100">
       <div class="xx x xjc xac">
         <div id="container" class="c8">
-          ${picture.render(closest(this.images, this.max))}
+          ${picture.render(image.source, image.data.aspect)}
         </div>
       </div>
       <form class="psr bt1-lightgray">
@@ -75,8 +76,8 @@ class Timeline extends Nanocomponent {
   prefetch () {
     Object.values(this.images).map(image => {
       image.buffer = html`<picture>
-          ${utils.sourceTag(image, 'image/webp')}
-          ${utils.sourceTag(image, 'image/jpeg')}
+          ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
+          ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
           <img src="${image.source}">
         </picture>`
     })
@@ -125,7 +126,7 @@ class Timeline extends Nanocomponent {
     var date = addDays(this.min, input.value)
     output.innerHTML = label(date)
     var image = closest(this.images, date)
-    picture.render(image)
+    picture.render(image.source, image.data.aspect)
     var container = this.element.querySelector('#container')
     if (image.data && image.data.aspect < 1) {
       container.classList.remove('c8')

@@ -22,14 +22,15 @@ class Picture extends Nanocomponent {
     super()
   }
 
-  createElement (file) {
+  createElement (file, aspect) {
     this.file = file
+    this.aspect = aspect
     return html`<div class="oh ${loaded} ${loading} b1-lightgray">
-      <div class="psr w100" style="${calcPadding(file)}">
+      <div class="psr w100" style="${calcPadding(aspect)}">
         <picture>
-          ${utils.sourceTag(file, 'image/webp')}
-          ${utils.sourceTag(file, 'image/jpeg')}
-          <img class="mx100 w100 psa" src="${file.source}">
+          ${utils.sourceTag(file, aspect, 'image/webp')}
+          ${utils.sourceTag(file, aspect, 'image/jpeg')}
+          <img class="mx100 w100 psa" data-aspect="${aspect}" src="${file}">
         </picture>
       </div>
     </div>`
@@ -53,14 +54,14 @@ class Picture extends Nanocomponent {
     }
   }
 
-  update (file) {
-    return (this.file.source !== file.source) ||
-      (this.file.data.aspect !== file.data.aspect)
+  update (file, aspect) {
+    return (this.file !== file) ||
+      (this.aspect !== aspect)
   }
 }
 
 module.exports = Picture
 
-function calcPadding (file) {
-  return `padding-bottom: ${100 / file.data.aspect}%;`
+function calcPadding (aspect) {
+  return `padding-bottom: ${100 / aspect}%;`
 }

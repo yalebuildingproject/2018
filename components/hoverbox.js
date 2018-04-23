@@ -21,7 +21,7 @@ class Hoverbox extends Nanocomponent {
     this.images = images
     return html`<div class="xx x xjc xac">
         <div class="c12 p3">
-          ${picture.render(utils.blankFile(this.aspect))}
+          ${picture.render('/assets/blank.jpg', this.aspect)}
         </div>
       </div>`
   }
@@ -34,8 +34,8 @@ class Hoverbox extends Nanocomponent {
   prefetch () {
     Object.values(this.images).map(image => {
       image.buffer = html`<picture>
-          ${utils.sourceTag(image, 'image/webp')}
-          ${utils.sourceTag(image, 'image/jpeg')}
+          ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
+          ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
           <img src="${image.source}">
         </picture>`
     })
@@ -46,11 +46,12 @@ class Hoverbox extends Nanocomponent {
   }
 
   display (e) {
-    picture.render(this.images[e.target.dataset.image])
+    var image = this.images[e.target.dataset.image]
+    picture.render(image.source, image.data.aspect)
   }
 
   clear () {
-    picture.render(utils.blankFile(this.aspect))
+    picture.render('/assets/blank.jpg', this.aspect)
   }
 
   register () {

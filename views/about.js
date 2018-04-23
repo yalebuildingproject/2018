@@ -30,7 +30,7 @@ function view (state, emit) {
     <div class="px4">
       <div style="padding-left: 5rem; padding-right: 2rem;">
         <div class="p0-25">
-          ${picture.render(image)}
+          ${picture.render(image.source, image.data.aspect)}
         </div>
       </div>
     </div>

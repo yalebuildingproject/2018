@@ -2,7 +2,9 @@ var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
 
-var layout = require('../elements/primary-layout')
+var Picture = require('./picture')
+
+var picture = new Picture()
 
 class Lightbox extends Nanocomponent {
   constructor () {
@@ -11,19 +13,26 @@ class Lightbox extends Nanocomponent {
     this.close = this.close.bind(this)
     this.noscroll = this.noscroll.bind(this)
     this.key = this.key.bind(this)
-    this.images = []
+    this.thumbs = []
   }
 
   createElement () {
     var close = html`<a class="close" href="#" >← Close</a>`
 
-    var img = html`<div class="p0-25 c12">
-        <img class="mx100 curzo" src="">
+    var img = html`<div class="full p0-25 c12 curzo">
+        ${picture.render('/assets/blank.jpg', 1.5)}
       </div>`
 
     return html`
       <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 bgc-white dn" style="background: hsla(0, 0%, 100%, 0.9)">
-        ${layout(close, img)}
+        <div class="x xjb xw vh100">
+          <div sm="s2 pr1-5 br1-lightgray mb2" md="c3" class="c12">
+            ${close}
+          </div>
+          <div sm="s2 pl1-5" md="c9" class="c12 mb2">
+            ${img}
+          </div>
+        </div>
       </div>
     `
   }
@@ -32,18 +41,16 @@ class Lightbox extends Nanocomponent {
     this.register()
     var close = this.element.querySelector('a.close')
     close.addEventListener('click', this.close, false)
-    var img = this.element.querySelector('img')
+    var img = this.element.querySelector('.full')
     img.addEventListener('click', this.close, false)
   }
 
-  unload () {
+  unload (element) {
     this.unregister()
-    if (this.element) {
-       var close = this.element.querySelector('a.close')
-      close.removeEventListener('click', this.close)
-      var img = this.element.querySelector('img')
-      img.removeEventListener('click', this.close)
-    }
+    var close = element.querySelector('a.close')
+    close.removeEventListener('click', this.close)
+    var img = element.querySelector('img')
+    img.removeEventListener('click', this.close)
   }
 
   noscroll (e) {
@@ -51,15 +58,15 @@ class Lightbox extends Nanocomponent {
   }
 
   register () {
-    this.images = document.querySelectorAll('img.thumb');
-    this.images.forEach(image => {
+    this.thumbs = document.querySelectorAll('.thumb img');
+    this.thumbs.forEach(image => {
       image.classList.add('curzi')
       image.addEventListener('click', this.open, false)
     })
   }
 
   unregister () {
-    this.images.forEach(image => {
+    this.thumbs.forEach(image => {
       image.classList.remove('curzi')
       image.removeEventListener('click', this.open)
     })
@@ -71,8 +78,9 @@ class Lightbox extends Nanocomponent {
     })
     document.addEventListener('keydown', this.key, true);
     document.body.classList.add('oh')
-    var img = this.element.querySelector('img')
-    img.src = e.target.dataset.source
+    var src = e.target.src
+    var aspect = e.target.dataset.aspect
+    picture.render(src, aspect)
     this.element.classList.remove('dn')
   }
 

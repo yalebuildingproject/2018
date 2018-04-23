@@ -5,7 +5,7 @@ var utils = require('../lib/utils')
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
-var images = require('../elements/image-group')
+var imageLayout = require('../elements/image-group')
 
 var Lightbox = require('../components/lightbox')
 var lightbox = new Lightbox()
@@ -18,7 +18,6 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   var teams = state.page('/content/design').children().toArray()
-
   utils.shuffle(teams)
 
   return html`
@@ -28,7 +27,7 @@ function view (state, emit) {
         ${teams.map(team => {
           var imgs = Object.values(team.files)
           return html`<div>
-            ${layout(text(team), images(imgs))}
+            ${layout(text(team), imageLayout(imgs))}
             <div class="my1 bt1-lightgray"></div>
           </div>`
         })}
