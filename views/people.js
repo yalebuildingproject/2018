@@ -81,8 +81,8 @@ function view (state, emit) {
       var image = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
 
       return html`<div data-image="${image}" class="person c12 x xjb ${marquee}">
-        <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="scroll-wrap c4 fs1-6 c-gray">
+        <div sm="c8" class="c12 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
+        <div sm="db" class="scroll-wrap c4 fs1-6 c-gray dn">
           <div class="${(state.sortPeople == 'hometown') ? 'scroll' : ''}">${detail}</div>
         </div>
       </div>`

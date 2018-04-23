@@ -20,7 +20,7 @@ class Hoverbox extends Nanocomponent {
     this.aspect = aspect
     this.images = images
     return html`<div class="xx x xjc xac">
-        <div class="c12 p3">
+        <div lg="p3" class="c12 p1">
           ${picture.render('/assets/blank.jpg', this.aspect)}
         </div>
       </div>`

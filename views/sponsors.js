@@ -4,17 +4,18 @@ var css = require('sheetify')
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
+var Picture = require('../components/picture')
 var utils = require('../lib/utils')
 
 var TITLE = 'Sponsors - Building Project 2018'
 
 var bw = css`
-  :host {
+  :host img {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
   }
 
-  :host:hover {
+  :host:hover img {
     opacity: 1 !important;
     -webkit-filter: none !important;
     filter: none !important;
@@ -42,7 +43,7 @@ function view (state, emit) {
             return image.source
           })
 
-  var col2 = html`<div class="px1-5 x xw xjs ${blur}">
+  var col2 = html`<div lg="px1-5" class="x xw xjs ${blur}">
     ${imgs.map(src => {return image(src)})}
   </div>`
 
@@ -56,9 +57,9 @@ function view (state, emit) {
 }
 
 function image(src) {
-  return html`<div class="c3">
+  return html`<div md="s4" class="s2 ${bw}">
         <div class="p0-5">
-          <img class="mx100 ${bw}" width="240" height="auto" src="${src}">
+          ${(new Picture()).render(src, 1)}
         </div>
   </div>`
 }

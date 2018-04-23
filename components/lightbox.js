@@ -26,10 +26,10 @@ class Lightbox extends Nanocomponent {
     return html`
       <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 bgc-white dn" style="background: hsla(0, 0%, 100%, 0.9)">
         <div class="x xjb xw vh100">
-          <div sm="s2 pr1-5 br1-lightgray mb2" md="c3" class="c12">
+          <div md="c3 pr1-5 br1-lightgray mb2" class="c12">
             ${close}
           </div>
-          <div sm="s2 pl1-5" md="c9" class="c12 mb2">
+          <div md="c9 pl1-5" class="c12 mb2">
             ${img}
           </div>
         </div>

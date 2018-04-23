@@ -47,8 +47,8 @@ function header (page) {
     <div lg="c3" class="s2" style="margin-top: -0.3rem;">
       <img class="${logo}" src="/assets/logo.svg">
     </div>
-    <div lg="c3 co3" class="s2">
-      <div class="x ${menu}">
+    <div lg="c3 co3" sm="db" class="s2 dn">
+      <div lg="xjs" class="x ${menu} xje">
         <ul>
           <li class="pr1">
             <a href="/" class="pr0 dib ${(page == '/') ? 'tdu' : 'tdu-hover'}">Home</a>
@@ -75,13 +75,11 @@ function header (page) {
         </ul>
       </div>
     </div>
-    <div lg="db" class="c2 co1 c-gray dn">
-      <div>
-      <p class="mb0">Button Street</p>
-      <div class="x">
+    <div lg="db" class="c3 c-gray dn">
+      <p class="mb0 tar">Button Street, New Haven</p>
+      <div class="x xje">
         <img class="${insta} mr0-25" src="/assets/instagram.svg">
         <p><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">yalebuildingproject2018</a></p>
-      </div>
       </div>
     </div>
   </header>`

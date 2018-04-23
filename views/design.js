@@ -46,6 +46,6 @@ function text(team) {
         })}
       </ul>
     </div>
-    <p class="fs0-9">${raw(team.html)}</p>
+    <p>${raw(team.html)}</p>
   </div>`
 }

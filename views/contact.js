@@ -45,9 +45,9 @@ function view (state, emit) {
   var col2 = html`<div>
     ${contact[state.chooseContact].map(person => {
       return html`<div class="c12 x xjb">
-        <div class="c4 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div class="c4 fs1-6 c-gray">${person.role}</div>
-        <div class="c4 fs1-6 c-gray"><a href="mailto:${person.email}">${person.email}</a></div>
+        <div sm="s2" lg="c4" class="c12 pr1-5 fs1-6 hang-indent"><a href="mailto:${person.email}">${utils.fullname(person.first, person.last)}</a></div>
+        <div sm="s2 db" lg="c4" class="fs1-6 c-gray dn">${person.role}</div>
+        <div lg="c4 db" class="fs1-6 c-gray dn"><a href="mailto:${person.email}">${person.email}</a></div>
       </div>`
     })}
   </div>`

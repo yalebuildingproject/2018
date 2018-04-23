@@ -1,5 +1,5 @@
 html {
-  font-size: 14pt;
+  font-size: 19px;
   line-height: 1.2;
 }
 
@@ -33,6 +33,10 @@ p {
 
 table {
   border-collapse: collapse;
+}
+
+.xje {
+  justify-content: flex-end;
 }
 
 .compact p {
