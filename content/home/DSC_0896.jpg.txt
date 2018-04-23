@@ -1,4 +1,0 @@
-date: 2018-03-06
-----
-data:
-  aspect: vertical

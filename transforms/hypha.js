@@ -42,6 +42,8 @@ function transform (filename) {
         var pathDir = path.isAbsolute(pathSite) ? pathSite : path.join(vars.__dirname, pathSite)
         var siteSync = hypha.readSiteSync(pathDir, opts)
 
+        siteSync = removeResponsiveImages(siteSync)
+        debugger;
         var stream = through()
         stream.push(JSON.stringify(siteSync, { }, 2))
         stream.push(null)
@@ -56,4 +58,23 @@ function transform (filename) {
   })
 
   return sm
+}
+
+function removeResponsiveImages(site) {
+  for (var href in site) {
+    var files = site[href].files
+    for (var file in files) {
+      if (isResponsive(files[file])) delete files[file]
+    }
+  }
+  return site
+}
+
+function isResponsive(file) {
+  if (file.extension == '.webp') return true
+  var suffixes = ['-thumb', '-md', '-l', '-xl']
+  for (var suffix of suffixes) {
+    if (file.name.endsWith(suffix)) return true
+  }
+  return false
 }

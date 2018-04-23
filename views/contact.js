@@ -20,7 +20,7 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var contact = state.site.pages.contact
+  var contact = state.page('/content/contact').value()
 
   var col1 = html`<div class="x xdc xjb h100">
     <div>

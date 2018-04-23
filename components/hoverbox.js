@@ -1,60 +1,76 @@
 var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
+var utils = require('../lib/utils')
 
 var layout = require('../elements/primary-layout')
+var Picture = require('../components/picture')
+
+var picture = new Picture()
 
 class Hoverbox extends Nanocomponent {
   constructor () {
     super()
     this.people = []
-    this.headshot = this.headshot.bind(this)
+    this.display = this.display.bind(this)
     this.clear = this.clear.bind(this)
   }
 
-  createElement () {
-
+  createElement (images, aspect) {
+    this.aspect = aspect
+    this.images = images
     return html`<div class="xx x xjc xac">
         <div class="c12 p3">
-          <img class="mx100 my100" src="">
+          ${picture.render(utils.blankFile(this.aspect))}
         </div>
       </div>`
   }
 
   load () {
     this.register()
+    this.prefetch()
+  }
+
+  prefetch () {
+    Object.values(this.images).map(image => {
+      image.buffer = html`<picture>
+          ${utils.sourceTag(image, 'image/webp')}
+          ${utils.sourceTag(image, 'image/jpeg')}
+          <img src="${image.source}">
+        </picture>`
+    })
   }
 
   unload () {
     this.unregister()
   }
 
-  headshot (e) {
-    var img = this.element.querySelector('img')
-    if (img.src !== e.target.dataset.source) img.src = e.target.dataset.source
+  display (e) {
+    picture.render(this.images[e.target.dataset.image])
   }
 
   clear () {
-    var img = this.element.querySelector('img')
-    img.src = ''
+    picture.render(utils.blankFile(this.aspect))
   }
 
   register () {
     this.people = document.querySelectorAll('div.person');
     this.people.forEach(person => {
-      person.addEventListener('mouseenter', this.headshot, false)
+      person.addEventListener('mouseenter', this.display, false)
       person.addEventListener('mouseleave', this.clear, false)
     })
   }
 
   unregister () {
     this.people.forEach(person => {
-      person.removeEventListener('mouseenter', this.headshot)
+      person.removeEventListener('mouseenter', this.display)
       person.removeEventListener('mouseleave', this.clear)
     })
   }
 
-  update () {
+  update (images, aspect) {
+    this.images = images
+    this.aspect = aspect
     this.clear()
     this.unregister()
     this.register()

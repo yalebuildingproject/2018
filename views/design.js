@@ -17,7 +17,7 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var teams = Object.values(state.site.pages.design.pages)
+  var teams = state.page('/content/design').children().toArray()
 
   utils.shuffle(teams)
 
@@ -26,9 +26,7 @@ function view (state, emit) {
       ${header('/design')}
       <div class="container">
         ${teams.map(team => {
-          var imgs = Object.values(team.files).map(file => {
-            return file.source
-          })
+          var imgs = Object.values(team.files)
           return html`<div>
             ${layout(text(team), images(imgs))}
             <div class="my1 bt1-lightgray"></div>

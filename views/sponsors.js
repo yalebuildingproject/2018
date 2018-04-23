@@ -33,13 +33,13 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var sponsors = state.site.pages.sponsors
-  var files = Object.values(sponsors.files)
+  var sponsors = state.page('/content/sponsors').v()
+  var images = state.page('/content/sponsors').images().toArray()
 
-  utils.shuffle(files)
+  utils.shuffle(images)
 
-  var imgs = files.map(file => {
-            return file.source
+  var imgs = images.map(image => {
+            return image.source
           })
 
   var col2 = html`<div class="px1-5 x xw xjs ${blur}">

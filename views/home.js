@@ -23,14 +23,13 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var schedule = utils.sortDate(state.site.pages.home.schedule)
-  var images = Object.values(state.site.pages.home.files)
+  var schedule = utils.sortDate(state.page('/content/home').v('schedule'))
+  var images = state.page('/content/home').images().toArray()
 
   var col1 = html`<div>
     <p>Schedule:</p>
     <table>
       ${schedule.map(entry => {
-        debugger;
         var active = (entry.date < new Date())
         var hover = active ? 'tdu-hover' : notAllowed
         return html`<tr>

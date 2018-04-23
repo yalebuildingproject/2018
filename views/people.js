@@ -50,7 +50,8 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var people = state.site.pages.people.people
+  var people = state.page('/content/people').value('people')
+  var images = state.page('/content/people').images().v()
 
   var col1 = html`<div>
     <p>Sort by:</p>
@@ -80,9 +81,9 @@ function view (state, emit) {
         detail = person.hometown
       }
 
-      var src = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
+      var image = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
 
-      return html`<div data-source="${src}" class="person c12 x xjb ${marquee}">
+      return html`<div data-image="${image}" class="person c12 x xjb ${marquee}">
         <div class="c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
         <div class="scroll-wrap c4 fs1-6 c-gray">
           <div class="${(state.sortPeople == 'hometown') ? 'scroll' : ''}">${detail}</div>
@@ -91,10 +92,12 @@ function view (state, emit) {
     })}
   </div>`
 
+  var aspect = (state.sortPeople == 'team') ? 1.3333333333333333 : 0.7501831501831502
+
   return html`
     <body class="ff-sans px1-5">
       ${header('/people')}
-      ${container(col1, col2, hoverbox.render())}
+      ${container(col1, col2, hoverbox.render(images, aspect))}
     </body>
   `
   function sort(e) {

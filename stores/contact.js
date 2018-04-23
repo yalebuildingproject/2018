@@ -3,14 +3,14 @@ module.exports = store
 function store (state, emitter) {
   state.sortContact = 'sort'
   state.chooseContact = 'students'
-  var people = state.site.pages.contact[state.chooseContact]
+  var people = state.page('/content/contact').v(state.chooseContact)
   people.sort(compareBy(state.sortContact))
 
   emitter.on('DOMContentLoaded', function () {
     emitter.on('contact:sort', function (method) {
       if (method == state.sortContact) return
       state.sortContact = method
-      var people = state.site.pages.contact[state.chooseContact]
+      var people = state.page('/content/contact').v(state.chooseContact)
       people.sort(compareBy(method))
       emitter.emit('render')
     })

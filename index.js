@@ -1,6 +1,7 @@
 var css = require('sheetify')
 var choo = require('choo')
 var hypha = require('hypha')
+var Page = require('nanopage')
 
 var utils = require('./lib/utils')
 
@@ -24,7 +25,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use((state, emitter) => {
-  state.site = utils.sitemap(site['/content'], site)
+  state.page = new Page({
+    content: site
+  })
 })
 app.use(require('./stores/people'))
 app.use(require('./stores/contact'))

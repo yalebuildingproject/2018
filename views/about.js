@@ -3,8 +3,11 @@ var raw = require('choo/html/raw')
 var css = require('sheetify')
 
 var Leaflet = require('../components/leaflet')
+var Picture = require('../components/picture')
 
 var leaflet = new Leaflet()
+
+var picture = new Picture()
 
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
@@ -16,7 +19,9 @@ module.exports = view
 function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
-  var about = state.site.pages.about
+  var about = state.page('/content/about').value()
+
+  var image = state.page('/content/about').images().toArray()[0]
 
   var col2 = html`<div>
     <div class="px4 pb2">
@@ -27,9 +32,9 @@ function view (state, emit) {
       </div>
     </div>
     <div class="px4">
-      <div class="x" style="padding-left: 5rem; padding-right: 2rem;">
+      <div style="padding-left: 5rem; padding-right: 2rem;">
         <div class="p0-25">
-          <img class="mx100" src="/content/about/20180871_411898995872968_3415214340008050688_n.jpg">
+          ${picture.render(image)}
         </div>
       </div>
     </div>
