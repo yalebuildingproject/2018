@@ -1,6 +1,11 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
+var nav = require('./nav')
+
+var Hamburger = require('../components/hamburger')
+var hamburger = new Hamburger()
+
 var icon = css`
   :host {
     height: 1rem;
@@ -34,12 +39,6 @@ var background = css`
   }
 `
 
-var menu = css`
-  :host li:before {
-    content: "\\2192\\0020\\0020";
-  }
-`
-
 module.exports = header
 
 function header (page) {
@@ -47,37 +46,12 @@ function header (page) {
     <div sm="s2" lg="c3" class="c12 x xjb" style="margin-top: -0.3rem;">
       <a href="/"><img class="${logo}" src="/assets/logo.svg"></a>
       <div sm="dn" class="x xjc xac">
-        <a href="#"><img class="${icon} mr1" src="/assets/icons/instagram.svg"></a>
-        <a href="#"><img class="${icon}" src="/assets/icons/hamburger.svg"></a>
+        <a href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer"><img class="${icon} mr1" src="/assets/icons/instagram.svg"></a>
+        <a class="hamburger" href="#"><img class="${icon}" src="/assets/icons/hamburger.svg"></a>
       </div>
     </div>
     <div sm="s2 db" lg="c3 co3" class="dn">
-      <div lg="xjs" class="x ${menu} xje">
-        <ul>
-          <li class="pr1">
-            <a href="/" class="pr0 dib ${(page == '/') ? 'tdu' : 'tdu-hover'}">Home</a>
-          </li>
-          <li class="pr1">
-            <a href="/about" class="pr0 dib ${(page == '/about') ? 'tdu' : 'tdu-hover'}">About</a>
-          </li>
-        </ul>
-        <ul>
-          <li class="pr1">
-            <a href="/design" class="pr0 dib ${(page == '/design') ? 'tdu' : 'tdu-hover'}">Design</a>
-          </li>
-          <li class="pr1">
-            <a href="/people" class="pr0 dib ${(page == '/people') ? 'tdu' : 'tdu-hover'}">People</a>
-          </li>
-        </ul>
-        <ul>
-          <li class="pr1">
-            <a href="/sponsors" class="pr0 dib ${(page == '/sponsors') ? 'tdu' : 'tdu-hover'}">Sponsors</a>
-          </li>
-          <li class="pr1">
-            <a href="/contact" class="pr0 dib ${(page == '/contact') ? 'tdu' : 'tdu-hover'}">Contact</a>
-          </li>
-        </ul>
-      </div>
+      ${nav(page)}
     </div>
     <div lg="db" class="c3 c-gray dn">
       <p class="mb0 tar">Button Street, New Haven</p>
@@ -86,5 +60,6 @@ function header (page) {
         <p><a class="dib tdu-hover" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">yalebuildingproject2018</a></p>
       </div>
     </div>
+    ${hamburger.render()}
   </header>`
 }

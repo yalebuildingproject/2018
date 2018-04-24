@@ -57,7 +57,7 @@ function view (state, emit) {
   var history = {}
 
   var col2 = html`<div>
-    <div sm="dn" class="mb1"><h1>People</h1></div>
+    <div sm="dn" class="mb1 bb1-lightgray"><h1>People</h1></div>
     <div class="cursor-plus">
       ${people.map(person => {
         var first = false

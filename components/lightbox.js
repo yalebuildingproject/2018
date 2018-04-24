@@ -73,6 +73,7 @@ class Lightbox extends Nanocomponent {
   }
 
   open (e) {
+    e.preventDefault();
     ['scroll', 'touchmove', 'mousewheel'].forEach(e => {
       this.element.addEventListener(e, this.noscroll, false)
     })

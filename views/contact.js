@@ -43,7 +43,7 @@ function view (state, emit) {
 
 
   var col2 = html`<div>
-    <div sm="dn" class="mb1"><h1>Contact</h1></div>
+    <div sm="dn" class="mb1 bb1-lightgray"><h1>Contact</h1></div>
     ${contact[state.chooseContact].map(person => {
       return html`<div class="c12 x xjb">
         <div sm="s2" lg="c4" class="c12 pr1-5 fs1-6 hang-indent"><a href="mailto:${person.email}">${utils.fullname(person.first, person.last)}</a></div>

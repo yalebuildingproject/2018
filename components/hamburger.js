@@ -2,6 +2,8 @@ var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
 
+var nav = require('../elements/nav')
+
 var background = css`
   :host {
     background: linear-gradient(
@@ -23,6 +25,12 @@ var background = css`
   }
 `
 
+var icon = css`
+  :host {
+    height: 1rem;
+  }
+`
+
 class Hamburger extends Nanocomponent {
   constructor () {
     super()
@@ -32,11 +40,13 @@ class Hamburger extends Nanocomponent {
   }
 
   createElement () {
-
     return html`
-      <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 ${background} dn" style="background: hsla(0, 0%, 100%, 0.9)">
-        <div class="x xjb xw vh100">
-
+      <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 ${background} dn">
+        <div class="vh100">
+          <div class="c12 x xjb my0-5">
+            ${nav()}
+            <a class="close" href="#"><img src="/assets/icons/close.svg" class="${icon}"></a>
+          </div>
         </div>
       </div>
     `
@@ -52,6 +62,7 @@ class Hamburger extends Nanocomponent {
     this.unregister()
     var close = element.querySelector('a.close')
     close.removeEventListener('click', this.close)
+    this.close()
   }
 
   noscroll (e) {
@@ -59,14 +70,17 @@ class Hamburger extends Nanocomponent {
   }
 
   register () {
-
+    var link = document.querySelector('header a.hamburger')
+    link.addEventListener('click', this.open, false)
   }
 
   unregister () {
-
+    var link = document.querySelector('header a.hamburger')
+    link.removeEventListener('click', this.open)
   }
 
   open (e) {
+    e.preventDefault();
     ['scroll', 'touchmove', 'mousewheel'].forEach(e => {
       this.element.addEventListener(e, this.noscroll, false)
     })
@@ -83,8 +97,10 @@ class Hamburger extends Nanocomponent {
   }
 
   update () {
+    console.log('updated')
     this.unregister()
     this.register()
+    this.close()
     return false
   }
 }

@@ -51,7 +51,7 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header('/sponsors')}
       <div class="container">
-        <div sm="dn" class="mb1"><h1>Sponsors</h1></div>
+        <div sm="dn" class="mb1 bb1-lightgray"><h1>Sponsors</h1></div>
         ${layout(raw(sponsors.html), col2)}
       </div>
     </body>`
