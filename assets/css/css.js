@@ -76,4 +76,15 @@ opts.utils.push({
   vals: [100]
 })
 
+opts.utils.push({
+  prop: 'text-decoration',
+  vals: {
+    'u-hover': 'underline',
+    'o-hover': 'overline',
+    'lt-hover': 'line-through',
+    'n-hover': 'none'
+  },
+  tail: ':hover'
+})
+
 module.exports = gr8(opts)

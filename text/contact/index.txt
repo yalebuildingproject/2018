@@ -135,4 +135,6 @@ More information:
 
 Colophon:
 
-This site is set in [Lunchtype22](http://lunchtype.com/) and built with [Choo](https://github.com/choojs/choo) and [Bankai](https://github.com/choojs/bankai).
+This site is set in [Lunchtype22](http://lunchtype.com/) and built with [Choo](https://choo.io/).
+
+[ST](https://seththompson.org) 2018

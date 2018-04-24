@@ -44,5 +44,4 @@ app.route('/sponsors', require('./views/sponsors'))
 app.route('/contact', require('./views/contact'))
 app.route('/*', require('./views/404'))
 
-if (!module.parent) app.mount('body')
-else module.exports = app
+module.exports = app.mount('body')

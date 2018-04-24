@@ -56,31 +56,34 @@ function view (state, emit) {
 
   var history = {}
 
-  var col2 = html`<div class="cursor-plus">
-    ${people.map(person => {
-      var first = false
-      if (state.sortPeople == 'team') {
-        if (!history[person.team]) {
-          history[person.team] = true
-          first = true
+  var col2 = html`<div>
+    <div sm="dn" class="mb1"><h1>People</h1></div>
+    <div class="cursor-plus">
+      ${people.map(person => {
+        var first = false
+        if (state.sortPeople == 'team') {
+          if (!history[person.team]) {
+            history[person.team] = true
+            first = true
+          }
         }
-      }
-      var detail = ''
-      if (first) {
-        detail = `Team ${person.team}`
-      } else if (state.sortPeople == 'hometown') {
-        detail = person.hometown
-      }
+        var detail = ''
+        if (first) {
+          detail = `Team ${person.team}`
+        } else if (state.sortPeople == 'hometown') {
+          detail = person.hometown
+        }
 
-      var image = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
+        var image = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
 
-      return html`<div data-image="${image}" class="person c12 x xjb ${marquee}">
-        <div sm="c8" class="c12 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-        <div sm="db" class="scroll-wrap c4 fs1-6 c-gray dn">
-          <div class="${(state.sortPeople == 'hometown') ? 'scroll' : ''}">${detail}</div>
-        </div>
-      </div>`
-    })}
+        return html`<div data-image="${image}" class="person c12 x xjb ${marquee}">
+          <div sm="c8" class="c12 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
+          <div sm="db" class="scroll-wrap c4 fs1-6 c-gray dn">
+            <div class="${(state.sortPeople == 'hometown') ? 'scroll' : ''}">${detail}</div>
+          </div>
+        </div>`
+      })}
+    </div>
   </div>`
 
   var aspect = (state.sortPeople == 'team') ? 1.3333333333333333 : 0.7501831501831502

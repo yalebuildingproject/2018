@@ -24,6 +24,7 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header('/design')}
       <div class="container">
+        <div sm="dn" class="mb1"><h1>Design</h1></div>
         ${teams.map(team => {
           var imgs = Object.values(team.files)
           return html`<div>
@@ -38,7 +39,7 @@ function view (state, emit) {
 
 function text(team) {
   return html`<div>
-    <h1 class="m0-75 fs3-2 ttu">${team.name}</h1>
+    <h2 class="m0-75 fs3-2 ttu">${team.name}</h2>
     <div class="x">
       <ul class="mb2">
         ${team.people.map(person => {

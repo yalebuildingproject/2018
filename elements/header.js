@@ -1,7 +1,7 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
-var insta = css`
+var icon = css`
   :host {
     height: 1rem;
   }
@@ -44,10 +44,14 @@ module.exports = header
 
 function header (page) {
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
-    <div lg="c3" class="s2" style="margin-top: -0.3rem;">
+    <div sm="s2" lg="c3" class="c12 x xjb" style="margin-top: -0.3rem;">
       <a href="/"><img class="${logo}" src="/assets/logo.svg"></a>
+      <div sm="dn" class="x xjc xac">
+        <a href="#"><img class="${icon} mr1" src="/assets/icons/instagram.svg"></a>
+        <a href="#"><img class="${icon}" src="/assets/icons/hamburger.svg"></a>
+      </div>
     </div>
-    <div lg="c3 co3" sm="db" class="s2 dn">
+    <div sm="s2 db" lg="c3 co3" class="dn">
       <div lg="xjs" class="x ${menu} xje">
         <ul>
           <li class="pr1">
@@ -78,8 +82,8 @@ function header (page) {
     <div lg="db" class="c3 c-gray dn">
       <p class="mb0 tar">Button Street, New Haven</p>
       <div class="x xje">
-        <img class="${insta} mr0-25" src="/assets/icons/instagram.svg">
-        <p><a class="dib tdu-hover-gray" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">yalebuildingproject2018</a></p>
+        <img class="${icon} mr0-25" src="/assets/icons/instagram.svg">
+        <p><a class="dib tdu-hover" href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer">yalebuildingproject2018</a></p>
       </div>
     </div>
   </header>`

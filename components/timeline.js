@@ -23,6 +23,14 @@ var slider = css`
     cursor: -webkit-grab;
   }
 
+  :host::-moz-range-track {
+    background: transparent; /* Otherwise white in Chrome */
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+
   :host:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
@@ -31,9 +39,23 @@ var slider = css`
 
   :host::-webkit-slider-thumb {
     -webkit-appearance: none;
+    border: none;
+    background: none;
     width: 3rem;
     height: 3rem;
   }
+
+  :host::-moz-range-thumb {
+    border: 1px solid #ffff;
+    height: 3rem;
+    width: 3rem;
+    background: #fff;
+  }
+
+  :host:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
 
   :host:focus {
     outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
@@ -101,14 +123,14 @@ class Timeline extends Nanocomponent {
   }
 
   register () {
-    var links = document.querySelectorAll('a.active');
+    var links = Array.from(document.querySelectorAll('a.active'))
     links.forEach(link => {
       link.addEventListener('click', this.click, false)
     })
   }
 
   unregister () {
-    var links = document.querySelectorAll('a.active');
+    var links = Array.from(document.querySelectorAll('a.active'))
     links.forEach(link => {
       link.removeEventListener('click', this.click)
     })

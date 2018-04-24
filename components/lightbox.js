@@ -58,7 +58,7 @@ class Lightbox extends Nanocomponent {
   }
 
   register () {
-    this.thumbs = document.querySelectorAll('.thumb img');
+    this.thumbs = Array.from(document.querySelectorAll('.thumb img'));
     this.thumbs.forEach(image => {
       image.classList.add('cursor-expand')
       image.addEventListener('click', this.open, false)

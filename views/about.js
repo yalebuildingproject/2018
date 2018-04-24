@@ -40,6 +40,7 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header('/about')}
       <div class="container">
+        <div sm="dn" class="mb1"><h1>About</h1></div>
         ${layout(raw(about.html), col2)}
       </div>
     </body>`

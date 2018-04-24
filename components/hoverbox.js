@@ -55,7 +55,7 @@ class Hoverbox extends Nanocomponent {
   }
 
   register () {
-    this.people = document.querySelectorAll('div.person');
+    this.people = Array.from(document.querySelectorAll('div.person'))
     this.people.forEach(person => {
       person.addEventListener('mouseenter', this.display, false)
       person.addEventListener('mouseleave', this.clear, false)
