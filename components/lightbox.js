@@ -19,7 +19,7 @@ class Lightbox extends Nanocomponent {
   createElement () {
     var close = html`<a class="close" href="#" >← Close</a>`
 
-    var img = html`<div class="full p0-25 c12 curzo">
+    var img = html`<div class="full p0-25 c12 cursor-shrink">
         ${picture.render('/assets/blank.jpg', 1.5)}
       </div>`
 
@@ -60,14 +60,14 @@ class Lightbox extends Nanocomponent {
   register () {
     this.thumbs = document.querySelectorAll('.thumb img');
     this.thumbs.forEach(image => {
-      image.classList.add('curzi')
+      image.classList.add('cursor-expand')
       image.addEventListener('click', this.open, false)
     })
   }
 
   unregister () {
     this.thumbs.forEach(image => {
-      image.classList.remove('curzi')
+      image.classList.remove('cursor-expand')
       image.removeEventListener('click', this.open)
     })
   }

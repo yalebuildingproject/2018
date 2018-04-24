@@ -36,12 +36,6 @@ var marquee = css`
   }
 `
 
-var crosshair = css`
-  :host {
-    cursor: crosshair;
-  }
-`
-
 module.exports = view
 
 function view (state, emit) {
@@ -62,7 +56,7 @@ function view (state, emit) {
 
   var history = {}
 
-  var col2 = html`<div class="${crosshair}">
+  var col2 = html`<div class="cursor-plus">
     ${people.map(person => {
       var first = false
       if (state.sortPeople == 'team') {

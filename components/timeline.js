@@ -17,7 +17,16 @@ var slider = css`
   :host {
      -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     background: transparent; /* Otherwise white in Chrome */
-    cursor: ew-resize;
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+
+  :host:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
   }
 
   :host::-webkit-slider-thumb {

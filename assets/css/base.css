@@ -36,6 +36,30 @@ table {
   border-collapse: collapse;
 }
 
+.cursor-expand {
+  cursor: url('/assets/icons/expand.svg') 24 24, zoom-in;
+}
+
+.cursor-left {
+  cursor: url('/assets/icons/left.svg') 32 32, n-resize;
+}
+
+.cursor-right {
+  cursor: url('/assets/icons/right.svg') 32 32, e-resize;
+}
+
+.cursor-shrink {
+  cursor: url('/assets/icons/shrink.svg') 24 24, zoom-out;
+}
+
+.cursor-plus {
+  cursor: url('/assets/icons/plus.svg') 32 32, crosshair;
+}
+
+.cursor-horizontal {
+  cursor: url('/assets/icons/horizontal.svg') 32 32, crosshair;
+}
+
 .xje {
   justify-content: flex-end;
 }
