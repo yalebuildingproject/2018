@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "bankai build index.js",
+    "build": "npm run gulp && bankai build index.js",
     "inspect": "bankai inspect index.js",
     "start": "bankai start index.js",
     "test": "standard && npm run test-deps",
@@ -40,6 +40,7 @@
     "choo-scaffold": "^1.1.2",
     "dependency-check": "^3.1.0",
     "gulp": "^4.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-responsive": "^2.10.0",
     "imagemin-mozjpeg": "^7.0.0",

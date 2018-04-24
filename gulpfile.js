@@ -1,5 +1,6 @@
 var gulp = require('gulp')
 var responsive = require('gulp-responsive');
+var changed = require('gulp-changed');
 
 var through = require('through2')
 var yaml = require('js-yaml')
@@ -11,17 +12,29 @@ var merge = require('lodash/merge')
 
 var fs = require('fs')
 
-gulp.task('clean', function () {
-  return del('content/**/*');
-});
+// gulp.task('clean-content', function () {
+//   return del('content/**/*');
+// })
+
+gulp.task('clean-dist', function () {
+  return del('dist/**/*');
+})
+
+gulp.task('clean', gulp.parallel('clean-dist'))
 
 gulp.task('text', () => {
   return gulp.src('text/**/*', {base: 'text/'})
     .pipe(gulp.dest('content'))
 })
 
+gulp.task('netlify', () => {
+  return gulp.src('netlify.toml')
+    .pipe(gulp.dest('dist'))
+})
+
 gulp.task('images', () => {
     return gulp.src('images/**/*.{png,gif,jpg,jpeg}', {base: 'images/'})
+      .pipe(changed('content'))
       .pipe(metadata())
       .pipe(responsive({
         '**/*.{png,gif,jpg,jpeg}': [{
@@ -77,7 +90,7 @@ gulp.task('images', () => {
       .pipe(gulp.dest('content'))
 });
 
-gulp.task('default', gulp.series('clean', gulp.parallel('text', 'images')))
+gulp.task('default', gulp.series('clean', gulp.parallel('netlify', 'text', 'images')))
 
 function metadata() {
   return through.obj(function(file, encoding, callback) {

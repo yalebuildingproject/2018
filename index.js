@@ -42,6 +42,7 @@ app.route('/people', require('./views/people'))
 app.route('/design', require('./views/design'))
 app.route('/sponsors', require('./views/sponsors'))
 app.route('/contact', require('./views/contact'))
+app.route('/404', require('./views/404'))
 app.route('/*', require('./views/404'))
 
 module.exports = app.mount('body')
