@@ -1,7 +1,7 @@
 var html = require('choo/html')
 var css = require('sheetify')
 
-var nav = require('./nav')
+var nav = require('./nav').horizontal
 
 var Hamburger = require('../components/hamburger')
 var hamburger = new Hamburger()
