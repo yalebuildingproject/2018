@@ -8,6 +8,15 @@ var picture = new Picture()
 var header = require('../elements/header')
 var layout = require('../elements/primary-layout')
 
+var collapse = css`
+  @media (max-width: 768px) {
+    :host {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+`
+
 var TITLE = 'About - Building Project 2018'
 
 module.exports = view
@@ -21,14 +30,14 @@ function view (state, emit) {
 
   var col2 = html`<div>
     <div lg="px4" class="pb2">
-      <div class="x" style="padding-right: 8rem;">
+      <div class="x ${collapse}" style="padding-right: 8rem;">
         <div class="p0-25 w100">
           <iframe class="w100" style="height: 300px;" src="/assets/map.html" frameborder="0" marginheight="0" marginwidth="0"></iframe>
         </div>
       </div>
     </div>
     <div lg="px4">
-      <div style="padding-left: 5rem; padding-right: 2rem;">
+      <div class="${collapse}" style="padding-left: 5rem; padding-right: 2rem;">
         <div class="p0-25">
           ${picture.render(image.source, image.data.aspect)}
         </div>

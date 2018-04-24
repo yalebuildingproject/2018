@@ -10,6 +10,13 @@ var imageLayout = require('../elements/image-group')
 var Lightbox = require('../components/lightbox')
 var lightbox = new Lightbox()
 
+var tint = css`
+  :host img {
+    filter: brightness(0.98);
+    -webkit-filter: brightness(0.98);
+  }
+`
+
 var TITLE = 'Design - Building Project 2018'
 
 module.exports = view
@@ -23,7 +30,7 @@ function view (state, emit) {
   return html`
     <body class="ff-sans px1-5 pb1">
       ${header('/design')}
-      <div class="container">
+      <div class="${tint} container">
         <div sm="dn" class="mb1 bb1-lightgray"><h1>Design</h1></div>
         ${teams.map(team => {
           var imgs = Object.values(team.files)

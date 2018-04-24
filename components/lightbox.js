@@ -6,6 +6,21 @@ var Picture = require('./picture')
 
 var picture = new Picture()
 
+var collapse = css`
+  @media (max-width: 768px) {
+    :host {
+      width: 100% !important;
+    }
+  }
+`
+
+var tint = css`
+  :host img {
+    filter: brightness(0.98);
+    -webkit-filter: brightness(0.98);
+  }
+`
+
 class Lightbox extends Nanocomponent {
   constructor () {
     super()
@@ -19,7 +34,7 @@ class Lightbox extends Nanocomponent {
   createElement () {
     var close = html`<a class="close" href="#" >← Close</a>`
 
-    var img = html`<div class="full p0-25 c12 cursor-shrink">
+    var img = html`<div class="aspect-wrap ${collapse} ${tint} full p0-25 c12 cursor-shrink">
         ${picture.render('/assets/blank.jpg', 1.5)}
       </div>`
 
@@ -81,6 +96,12 @@ class Lightbox extends Nanocomponent {
     document.body.classList.add('oh')
     var src = e.target.src
     var aspect = e.target.dataset.aspect
+    var wrapper = this.element.querySelector('.aspect-wrap')
+    if (aspect < 1.2) {
+      wrapper.style.width = `${90 * aspect}vh`
+    } else {
+      wrapper.style.removeProperty('width')
+    }
     picture.render(src, aspect)
     this.element.classList.remove('dn')
   }

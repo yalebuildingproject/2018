@@ -1,11 +1,20 @@
 var html = require('choo/html')
+var css = require('sheetify')
 var utils = require('../lib/utils')
 var Picture = require('../components/picture')
+
+var collapse = css`
+  @media (max-width: 768px) {
+    :host {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+`
 
 module.exports = layout
 
 function layout (imgs) {
-  var row = 0
   var els = []
 
   utils.shuffle(imgs)
@@ -32,8 +41,8 @@ function layout (imgs) {
 function single(img) {
   var p = randPadding()
   return html`<div lg="px4">
-    <div class="x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
-      <div class="thumb p0-25">
+    <div class="${collapse} x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
+      <div class="c12 thumb p0-25">
         ${(new Picture()).render(img.source, img.data.aspect)}
       </div>
     </div>
@@ -44,7 +53,7 @@ function split(img1, img2) {
   var p = randPadding(true)
   var s = randSplit()
   return html`<div lg="px4">
-    <div class="x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
+    <div class="${collapse} x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
       <div class="thumb p0-25" style="width: ${s + '%'};">
         ${(new Picture()).render(img1.source, img1.data.aspect)}
       </div>
