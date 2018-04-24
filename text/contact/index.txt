@@ -64,22 +64,22 @@ students:
   - first: Serena
     last: Ching
     email: serena.ching@yale.edu
-    role: Field Crew Managers
+    role: Field Crew Manager
     sort: 8
   - first: Helen
     last: Farley
     email: helen.farley@yale.edu
-    role: Field Crew Managers
+    role: Field Crew Manager
     sort: 8
   - first: Jonathan
     last: Palomo
     email: jonathan.palomo@yale.edu
-    role: Field Crew Managers
+    role: Field Crew Manager
     sort: 8
   - first: Darryl
     last: Weimer
     email: darryl.weimer@yale.edu
-    role: Field Crew Managers
+    role: Field Crew Manager
     sort: 8
 faculty:
   - first: Adam

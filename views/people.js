@@ -2,6 +2,7 @@ var html = require('choo/html')
 var css = require('sheetify')
 var utils = require('../lib/utils')
 
+var Picture = require('../components/picture')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
@@ -36,6 +37,9 @@ var marquee = css`
   }
 `
 
+const personAspect = 0.7501831501831502
+const teamAspect = 1.3333333333333333
+
 module.exports = view
 
 function view (state, emit) {
@@ -57,7 +61,6 @@ function view (state, emit) {
   var history = {}
 
   var col2 = html`<div>
-    <div sm="dn" class="mb1 bb1-lightgray"><h1>People</h1></div>
     <div class="cursor-plus">
       ${people.map(person => {
         var first = false
@@ -86,12 +89,31 @@ function view (state, emit) {
     </div>
   </div>`
 
-  var aspect = (state.sortPeople == 'team') ? 1.3333333333333333 : 0.7501831501831502
+  var aspect = (state.sortPeople == 'team') ? teamAspect : personAspect
 
   return html`
     <body class="ff-sans px1-5">
       ${header('/people')}
-      ${container(col1, col2, hoverbox.render(images, aspect))}
+      <div sm="dn" class="container">
+        <div sm="dn" class="mb1 bb1-lightgray"><h1>People</h1></div>
+        ${people.map(person => {
+          return html`<div class="x py0-25">
+            <div class="s2 pr1">
+              <ul>
+                <li class="hang-indent">${utils.fullname(person.first, person.last)}</li>
+                <li class="c-gray hang-indent">Team ${person.team}</li>
+                <li class="c-gray hang-indent">${person.hometown}</li>
+              </ul>
+            </div>
+            <div class="s2">
+              ${(new Picture).render(images[utils.headshot(person.first, person.last)].source, personAspect)}
+            </div>
+          </div>`
+        })}
+      </div>
+      <div sm="db" class="dn">
+        ${container(col1, col2, hoverbox.render(images, aspect))}
+      </div>
     </body>
   `
   function sort(e) {

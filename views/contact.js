@@ -43,7 +43,6 @@ function view (state, emit) {
 
 
   var col2 = html`<div>
-    <div sm="dn" class="mb1 bb1-lightgray"><h1>Contact</h1></div>
     ${contact[state.chooseContact].map(person => {
       return html`<div class="c12 x xjb">
         <div sm="s2" lg="c4" class="c12 pr1-5 fs1-6 hang-indent"><a href="mailto:${person.email}">${utils.fullname(person.first, person.last)}</a></div>
@@ -56,7 +55,16 @@ function view (state, emit) {
   return html`
     <body class="ff-sans px1-5">
       ${header('/contact')}
-      ${container(col1, col2)}
+      <div sm="dn" class="container">
+        <div sm="dn" class="mb1 bb1-lightgray"><h1>Contact</h1></div>
+        <h2 class="mb1">Students</h2>
+        ${contact.students.map(mobilePerson)}
+        <h2 class="mb1">Faculty</h2>
+        ${contact.faculty.map(mobilePerson)}
+      </div>
+      <div sm="db" class="dn">
+        ${container(col1, col2)}
+      </div>
     </body>
   `
 
@@ -67,4 +75,14 @@ function view (state, emit) {
   function sort(e) {
     emit('contact:sort', e.target.dataset.method)
   }
+}
+
+function mobilePerson(person) {
+  return html`<div class="x py0-25">
+    <ul>
+      <li class="hang-indent">${utils.fullname(person.first, person.last)}</li>
+      <li class="c-gray hang-indent">${person.role}</li>
+      <li class="c-gray hang-indent"><a href="mailto:${person.email}">${person.email}</a></li>
+    </ul>
+  </div>`
 }
