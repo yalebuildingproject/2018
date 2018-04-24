@@ -33,6 +33,8 @@ app.use((state, emitter) => {
     content: site
   })
 })
+
+app.use(require('./stores/main'))
 app.use(require('./stores/people'))
 app.use(require('./stores/contact'))
 
