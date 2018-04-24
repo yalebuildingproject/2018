@@ -8,6 +8,7 @@
 
 <details id="overview">
 <summary>Overview</summary>
+<br>
 
 The site is built with the following tools:
 - [choojs/choo](https://github.com/choojs/choo)
@@ -21,6 +22,8 @@ The site is built with the following tools:
 
 <details id="commands">
 <summary>Commands</summary>
+
+<br>
 
 > `$ npm start` Start the development server
 
