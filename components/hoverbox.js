@@ -73,8 +73,6 @@ class Hoverbox extends Nanocomponent {
     this.images = images
     this.aspect = aspect
     this.clear()
-    this.unregister()
-    this.register()
     return false
   }
 }

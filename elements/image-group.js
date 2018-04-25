@@ -42,7 +42,7 @@ function single(img) {
   var p = randPadding()
   return html`<div lg="px4">
     <div class="${collapse} x" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
-      <div class="c12 thumb p0-25">
+      <div class="c12 thumb cursor-expand p0-25">
         ${(new Picture()).render(img.source, img.data.aspect)}
       </div>
     </div>
@@ -54,10 +54,10 @@ function split(img1, img2) {
   var s = randSplit()
   return html`<div lg="px4">
     <div class="${collapse} x xjb" style="padding-left: ${p + 'rem'}; padding-right: ${p + 'rem'};">
-      <div class="thumb p0-25" style="width: ${s + '%'};">
+      <div class="thumb cursor-expand p0-25" style="width: ${s + '%'};">
         ${(new Picture()).render(img1.source, img1.data.aspect)}
       </div>
-      <div class="thumb p0-25" style="width: ${100 - s + '%'};">
+      <div class="thumb cursor-expand p0-25" style="width: ${100 - s + '%'};">
         ${(new Picture()).render(img2.source, img2.data.aspect)}
       </div>
     </div>

@@ -34,7 +34,7 @@ app.use((state, emitter) => {
   })
 })
 
-app.use(require('./stores/main'))
+app.use(require('./stores/link'))
 app.use(require('./stores/people'))
 app.use(require('./stores/contact'))
 

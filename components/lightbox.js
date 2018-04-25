@@ -61,7 +61,6 @@ class Lightbox extends Nanocomponent {
   }
 
   unload (element) {
-    this.unregister()
     var close = element.querySelector('a.close')
     close.removeEventListener('click', this.close)
     var img = element.querySelector('img')
@@ -73,18 +72,9 @@ class Lightbox extends Nanocomponent {
   }
 
   register () {
-    this.thumbs = Array.from(document.querySelectorAll('.thumb img'));
-    this.thumbs.forEach(image => {
-      image.classList.add('cursor-expand')
-      image.addEventListener('click', this.open, false)
-    })
-  }
-
-  unregister () {
-    this.thumbs.forEach(image => {
-      image.classList.remove('cursor-expand')
-      image.removeEventListener('click', this.open)
-    })
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.thumb img')) this.open(e)
+    }, false)
   }
 
   open (e) {
@@ -139,8 +129,6 @@ class Lightbox extends Nanocomponent {
   }
 
   update () {
-    this.unregister()
-    this.register()
     return false
   }
 }

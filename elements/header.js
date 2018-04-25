@@ -46,8 +46,8 @@ function header (page) {
     <div sm="s2" lg="c3" class="c12 x xjb" style="margin-top: -0.3rem;">
       <a href="/"><img class="${logo}" src="/assets/logo.svg"></a>
       <div sm="dn" class="x xjc xac">
-        <a href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer"><img class="${icon} mr1" src="/assets/icons/instagram.svg"></a>
-        <a class="hamburger" href="#"><img class="${icon}" src="/assets/icons/hamburger.svg"></a>
+        <a href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer"><img class="${icon}" src="/assets/icons/instagram.svg"></a>
+        <a class="hamburger" href="#"><img class="${icon} ml1" src="/assets/icons/hamburger.svg"></a>
       </div>
     </div>
     <div sm="s2 db" lg="c3 co3" class="dn">

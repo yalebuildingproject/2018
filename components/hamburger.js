@@ -59,7 +59,6 @@ class Hamburger extends Nanocomponent {
   }
 
   unload (element) {
-    this.unregister()
     var close = element.querySelector('a.close')
     close.removeEventListener('click', this.close)
     this.close()
@@ -70,13 +69,10 @@ class Hamburger extends Nanocomponent {
   }
 
   register () {
-    var link = document.querySelector('header a.hamburger')
-    link.addEventListener('click', this.open, false)
-  }
-
-  unregister () {
-    var link = document.querySelector('header a.hamburger')
-    link.removeEventListener('click', this.open)
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('header a.hamburger') ||
+        e.target.matches('header a.hamburger img')) this.open(e)
+    }, false)
   }
 
   open (e) {
@@ -97,8 +93,6 @@ class Hamburger extends Nanocomponent {
   }
 
   update () {
-    this.unregister()
-    this.register()
     this.close()
     return false
   }

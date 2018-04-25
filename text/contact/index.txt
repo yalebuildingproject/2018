@@ -135,6 +135,6 @@ More information:
 
 Colophon:
 
-This site is set in [Lunchtype22](http://lunchtype.com/) and built with [Choo](https://choo.io/).
+This site is set in [Lunchtype22](http://lunchtype.com/) and the source is available on [GitHub](https://github.com/yalebuildingproject/2018).
 
 [ST](https://seththompson.org) 2018

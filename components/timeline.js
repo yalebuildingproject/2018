@@ -97,7 +97,7 @@ class Timeline extends Nanocomponent {
       this.element.addEventListener(e, this.changeDate, false)
     })
     this.register()
-    window.addEventListener('resize', debounce(this.changeDate, 10), false)
+    window.addEventListener('resize', this.changeDate, false)
     var input = this.element.querySelector('input')
     input.value = input.max
     this.changeDate()
@@ -118,22 +118,13 @@ class Timeline extends Nanocomponent {
     ['input', 'change', 'keyup'].forEach(e => {
       element.removeEventListener(e, this.changeDate)
     })
-    this.unregister()
-    window.removeEventListener('resize', debounce(this.changeDate, 10))
+    window.removeEventListener('resize', this.changeDate)
   }
 
   register () {
-    var links = Array.from(document.querySelectorAll('a.active'))
-    links.forEach(link => {
-      link.addEventListener('click', this.click, false)
-    })
-  }
-
-  unregister () {
-    var links = Array.from(document.querySelectorAll('a.active'))
-    links.forEach(link => {
-      link.removeEventListener('click', this.click)
-    })
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('a.active')) this.click(e)
+    }, false)
   }
 
   click (e) {
@@ -144,35 +135,35 @@ class Timeline extends Nanocomponent {
   }
 
   changeDate () {
-    var input = this.element.querySelector('input')
-    var output = this.element.querySelector('output')
-    var range = input.max - input.min
-    var percent = 1 - (input.value - input.min) / range
-    var elWidth = output.offsetWidth
-    var totalWidth = input.offsetWidth - elWidth
-    var offset = (percent * totalWidth)
-    output.style.transform = `translate(${-Math.floor(offset)}px)`
-    output.style['-webkit-transform'] = `translate(${-Math.floor(offset)}px)`
-    output.style['-ms-transform'] = `translate(${-Math.floor(offset)}px)`
-    var date = addDays(this.min, input.value)
-    output.innerHTML = label(date)
-    var image = closest(this.images, date)
-    picture.render(image.source, image.data.aspect)
-    var container = this.element.querySelector('#container')
-    if (image.data && image.data.aspect < 1) {
-      container.classList.remove('c8')
-      container.classList.add('c4')
-    } else {
-      container.classList.remove('c4')
-      container.classList.add('c8')
-    }
+    debounce(() => {
+      var input = this.element.querySelector('input')
+      var output = this.element.querySelector('output')
+      var range = input.max - input.min
+      var percent = 1 - (input.value - input.min) / range
+      var elWidth = output.offsetWidth
+      var totalWidth = input.offsetWidth - elWidth
+      var offset = (percent * totalWidth)
+      output.style.transform = `translate(${-Math.floor(offset)}px)`
+      output.style['-webkit-transform'] = `translate(${-Math.floor(offset)}px)`
+      output.style['-ms-transform'] = `translate(${-Math.floor(offset)}px)`
+      var date = addDays(this.min, input.value)
+      output.innerHTML = label(date)
+      var image = closest(this.images, date)
+      picture.render(image.source, image.data.aspect)
+      var container = this.element.querySelector('#container')
+      if (image.data && image.data.aspect < 1) {
+        container.classList.remove('c8')
+        container.classList.add('c4')
+      } else {
+        container.classList.remove('c4')
+        container.classList.add('c8')
+      }
+    }, 10)()
   }
 
   update (images, schedule) {
     this.images = utils.sortByDataDate(images)
     this.schedule = schedule
-    this.unregister()
-    this.register()
     return false
   }
 }

@@ -3,7 +3,7 @@ var nanohref = require('nanohref')
 var safeExternalLink = /(noopener|noreferrer) (noopener|noreferrer)/
 var protocolLink = /^[\w-_]+:/
 
-module.exports = function scrollToTop (state, emitter) {
+module.exports = function store (state, emitter) {
   emitter.on('DOMContentLoaded', () => {
 
     window.addEventListener('click', function (e) {
@@ -25,6 +25,8 @@ module.exports = function scrollToTop (state, emitter) {
         (anchor.getAttribute('target') === '_blank' &&
           safeExternalLink.test(anchor.getAttribute('rel'))) ||
         protocolLink.test(anchor.getAttribute('href'))) return
+
+      if (anchor.getAttribute('href') == '#') return
 
       var href = location.href
       var currHref = window.location.href
