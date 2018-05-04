@@ -8,18 +8,12 @@ schedule:
   - title: Design Review
     date: 2018-04-12
   - title: Final Review & Selection
-    date: 2018-04-30
-    duration: 2
-    description:
+    date: 2018-05-01
   - title: Groundbreaking
     date: 2018-05-14
-    description:
   - title: Summer Internship Begins
-    date: 2018-07-2
-    description:
+    date: 2018-07-02
   - title: Construction Ends
     date: 2018-08
-    description:
   - title: Open House Party
     date: 2018-09
-    description:
