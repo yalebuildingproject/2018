@@ -1,0 +1,32 @@
+title: Pavilion
+----
+schedule:
+  - title: Columbus House Pavilion Kick-Off
+    byline: What is home?  What is neighborhood? What is community?
+    description: For people who experience living without a home, these are compelling questions – perhaps home is a shelter or a make-shift tent in a  river side neighborhood along with a community of friends. Join Columbus House as we dig deeper into the questions about where we live, kicking off a week of presentations by advocates for people who do not  have a place to call home.
+    date: 2018-05-09
+    time: 1pm
+  - title: Grassroots Organizing with Mothers (and Others) for Justice
+    byline: Empower yourself through community organizing.
+    description: Mothers (and Others) for Justice is consistently recognized by the Connecticut General Assembly and by professional advocates throughout the state as an authentic, persistent and consistent voice for people who are poor. Learn how community organizing can empower individuals seeking to promote change in programs and policies that improve the lives of women and their children.
+    date: 2018-05-10
+    time: 3pm
+  - title: Tenants Rights Workshop with New Haven Legal Assistance Association
+    byline: Know your rights.
+    description: NHLAA will be taking questions about fair housing and provide information about what legal rights you may have if you are unfairly facing housing discrimination, eviction, or landlord abuses.
+    date: 2018-05-13
+    time: 11am
+  - title: Moving Forward Training with Connecticut Fair Housing Center
+    byline: Learn about resources and get tips on staying organized as you look for housing.
+    description: This training session is designed to help you if you are going through the moving process. Connecticut Fair Housing Center will answer questions about your fair housing rights and and help you understand what tools you have if you are a victim of discrimination.
+    date: 2018-05-15
+    time: 11am
+  - title: Paddington Storytime with the Connecticut Coaltion to End Homelessness
+    byline: Why is it important to have a home?
+    description: At this story time kids can explore why it it is important to have a home, and how we can help families who don’t have a home be safe and comfortable. After listening to Paddington's story, children can draw what having a home means to them and learn how they can help to make sure there are resources available to protect families from being homeless.
+    date: 2018-05-16
+    time: 2pm
+----
+text:
+
+In partnership with Columbus House, the Yale Building Project is excited to participate in the 2018 New Haven International Festival of Arts & Ideas. Come find us on the New Haven Green at the Columbus House Pavilion.

@@ -13,7 +13,7 @@ module.exports = {
 }
 
 function horizontal (page) {
-  return html`<div sm="xje" lg="xjs" class="x ${menu}">
+  return html`<div class="x sm-xje lg-xjs ${menu}">
     <ul>
       <li class="pr1">
         <a class="item" href="/" class="pr0 dib ${(page == '/') ? 'tdu' : 'tdu-hover'}">Home</a>
@@ -42,7 +42,7 @@ function horizontal (page) {
 }
 
 function vertical () {
-  return html`<div sm="xje" lg="xjs" class="x ${menu}">
+  return html`<div class="x sm-xje lg-xjs ${menu}">
     <ul>
       <li class="pr1">
         <a class="item" href="/" class="pr0 dib">Home</a>

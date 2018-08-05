@@ -6,14 +6,14 @@ var utils = require('../lib/utils')
 
 var loaded = css`
   :host img {
-    opacity: 1;
-    transition: opacity 0.3s;
+    /* opacity: 1;
+    transition: opacity 0.3s; */
   }
 `
 
 var loading = css`
   :host img {
-    opacity: 0;
+    /* opacity: 0; */
   }
 `
 
@@ -25,13 +25,15 @@ class Picture extends Nanocomponent {
   createElement (file, aspect) {
     this.file = file
     this.aspect = aspect
+    var picture = ''
+    if (file) picture = html`<picture>
+        ${utils.sourceTag(file, aspect, 'image/webp')}
+        ${utils.sourceTag(file, aspect, 'image/jpeg')}
+        <img class="mx100 w100 psa" data-aspect="${aspect}" src="${file}">
+      </picture>`
     return html`<div class="oh ${loaded} ${loading} b1-lightgray">
       <div class="psr w100" style="${calcPadding(aspect)}">
-        <picture>
-          ${utils.sourceTag(file, aspect, 'image/webp')}
-          ${utils.sourceTag(file, aspect, 'image/jpeg')}
-          <img class="mx100 w100 psa" data-aspect="${aspect}" src="${file}">
-        </picture>
+        ${picture}
       </div>
     </div>`
   }
@@ -39,9 +41,11 @@ class Picture extends Nanocomponent {
   load () {
     var div = this.element
     var img = div.querySelector('img')
-    if (img.complete) div.classList.remove(loading)
-    img.onload = function () {
-      div.classList.remove(loading)
+    if (img) {
+      if (img.complete) div.classList.remove(loading)
+      img.onload = function () {
+        div.classList.remove(loading)
+      }
     }
   }
 

@@ -29,14 +29,14 @@ function view (state, emit) {
   var image = state.page('/content/about').images().toArray()[0]
 
   var col2 = html`<div>
-    <div lg="px4" class="pb2">
+    <div class="pb2 lg-px4">
       <div class="x ${collapse}" style="padding-right: 8rem;">
         <div class="p0-25 w100">
           <iframe class="w100" style="height: 300px;" src="/assets/map.html" frameborder="0" marginheight="0" marginwidth="0"></iframe>
         </div>
       </div>
     </div>
-    <div lg="px4">
+    <div class="lg-px4">
       <div class="${collapse}" style="padding-left: 5rem; padding-right: 2rem;">
         <div class="p0-25">
           ${picture.render(image.source, image.data.aspect)}
@@ -49,7 +49,7 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header('/about')}
       <div class="container">
-        <div sm="dn" class="mb1 bb1-lightgray"><h1>About</h1></div>
+        <div class="mb1 bb1-lightgray sm-dn"><h1>About</h1></div>
         ${layout(raw(about.html), col2)}
       </div>
     </body>`

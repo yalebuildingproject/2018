@@ -43,7 +43,7 @@ class Hamburger extends Nanocomponent {
     return html`
       <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 ${background} dn">
         <div class="vh100">
-          <div class="c12 x xjb  my0-5">
+          <div class="c12 x xjb my0-5">
             ${nav()}
             <a class="close" href="#"><img src="/assets/icons/close.svg" class="${icon}"></a>
           </div>

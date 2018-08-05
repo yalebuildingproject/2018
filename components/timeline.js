@@ -81,7 +81,7 @@ class Timeline extends Nanocomponent {
 
     return html`<div class="x xdc h100">
       <div class="xx x xjc xac">
-        <div id="container" class="c8">
+        <div id="container" class="${(image.data && image.data.aspect < 1) ? 'c4' : 'c8'}">
           ${picture.render(image.source, image.data.aspect)}
         </div>
       </div>
@@ -105,13 +105,13 @@ class Timeline extends Nanocomponent {
   }
 
   prefetch () {
-    Object.values(this.images).map(image => {
-      image.buffer = html`<picture>
-          ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
-          ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
-          <img src="${image.source}">
-        </picture>`
-    })
+    // Object.values(this.images).map(image => {
+    //   image.buffer = html`<picture>
+    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
+    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
+    //       <img src="${image.source}">
+    //     </picture>`
+    // })
   }
 
   unload (element) {

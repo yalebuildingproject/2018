@@ -1,23 +1,24 @@
 var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
+var utils = require('../lib/utils')
 
 var Picture = require('./picture')
 
 var picture = new Picture()
 
-var collapse = css`
-  @media (max-width: 768px) {
-    :host {
-      width: 100% !important;
-    }
-  }
-`
+var style = css`
 
-var tint = css`
+  :host {
+    width: 90vw;
+    height: 90vh;
+
+  }
+
   :host img {
     filter: brightness(0.98);
     -webkit-filter: brightness(0.98);
+    object-fit: contain;
   }
 `
 
@@ -28,43 +29,33 @@ class Lightbox extends Nanocomponent {
     this.close = this.close.bind(this)
     this.noscroll = this.noscroll.bind(this)
     this.key = this.key.bind(this)
+    this.src = null
+    this.aspect = null
     this.thumbs = []
   }
 
   createElement () {
-    var close = html`<a class="close" href="#" >← Close</a>`
 
-    var img = html`<div class="aspect-wrap ${collapse} ${tint} full p0-25 c12 cursor-shrink">
-        ${picture.render('/assets/blank.jpg', 1.5)}
-      </div>`
+    var img = this.src ? html`<picture class="${style} cursor-shrink">
+          ${utils.sourceTag(this.src, this.aspect, 'image/webp')}
+          ${utils.sourceTag(this.src, this.aspect, 'image/jpeg')}
+          <img class="h100 w100" data-aspect="${this.aspect}" src="${this.src}">
+        </picture>` : ''
 
     return html`
-      <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 bgc-white dn" style="background: hsla(0, 0%, 100%, 0.9)">
-        <div class="x xjb xw vh100">
-          <div md="c3 pr1-5 br1-lightgray mb2" class="c12">
-            ${close}
-          </div>
-          <div md="c9 pl1-5" class="c12 mb2">
-            ${img}
-          </div>
-        </div>
+      <div class="z2 psf c12 usn t0 l0 r0 b0 px1-5 py1 bgc-white x xac xjc dn" style="background: hsla(0, 0%, 100%, 0.9)">
+        ${img}
       </div>
     `
   }
 
-  load () {
+  load (element) {
     this.register()
-    var close = this.element.querySelector('a.close')
-    close.addEventListener('click', this.close, false)
-    var img = this.element.querySelector('.full')
-    img.addEventListener('click', this.close, false)
+    element.addEventListener('click', this.close, false)
   }
 
   unload (element) {
-    var close = element.querySelector('a.close')
-    close.removeEventListener('click', this.close)
-    var img = element.querySelector('img')
-    img.removeEventListener('click', this.close)
+    element.removeEventListener('click', this.close)
   }
 
   noscroll (e) {
@@ -84,15 +75,9 @@ class Lightbox extends Nanocomponent {
     })
     document.addEventListener('keydown', this.key, true);
     document.body.classList.add('oh')
-    var src = e.target.src
-    var aspect = e.target.dataset.aspect
-    var wrapper = this.element.querySelector('.aspect-wrap')
-    if (aspect < 1.2) {
-      wrapper.style.width = `${90 * aspect}vh`
-    } else {
-      wrapper.style.removeProperty('width')
-    }
-    picture.render(src, aspect)
+    this.src = e.target.src
+    this.aspect = e.target.dataset.aspect
+    this.rerender()
     this.element.classList.remove('dn')
   }
 
@@ -104,6 +89,9 @@ class Lightbox extends Nanocomponent {
         break;
       case "ArrowRight":
         this.next()
+        break;
+      case "Escape":
+        this.close()
         break;
       default:
         return;

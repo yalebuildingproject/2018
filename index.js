@@ -40,6 +40,7 @@ app.use(require('./stores/contact'))
 
 app.route('/', require('./views/home'))
 app.route('/about', require('./views/about'))
+app.route('/pavilion', require('./views/pavilion'))
 app.route('/people', require('./views/people'))
 app.route('/design', require('./views/design'))
 app.route('/sponsors', require('./views/sponsors'))

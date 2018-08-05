@@ -43,17 +43,17 @@ module.exports = header
 
 function header (page) {
   return html`<header class="z1 psf c12 usn t0 l0 r0 px1-5 py1 x xjb ${background}">
-    <div sm="s2" lg="c3" class="c12 x xjb" style="margin-top: -0.3rem;">
+    <div class="c12 x xjb sm-s2 lg-c3" style="margin-top: -0.3rem;">
       <a href="/"><img class="${logo}" src="/assets/logo.svg"></a>
-      <div sm="dn" class="x xjc xac">
+      <div class="x xjc xac sm-dn">
         <a href="https://www.instagram.com/yalebuildingproject2018/" target="_blank" rel="noopener noreferrer"><img class="${icon}" src="/assets/icons/instagram.svg"></a>
         <a class="hamburger" href="#"><img class="${icon} ml1" src="/assets/icons/hamburger.svg"></a>
       </div>
     </div>
-    <div sm="s2 db" lg="c3 co3" class="dn">
+    <div class="dn sm-s2 sm-db lg-c3 lg-co3">
       ${nav(page)}
     </div>
-    <div lg="db" class="c3 c-gray dn">
+    <div class="c3 c-gray dn lg-db">
       <p class="mb0 tar">Button Street, New Haven</p>
       <div class="x xje">
         <img class="${icon} mr0-25" src="/assets/icons/instagram.svg">

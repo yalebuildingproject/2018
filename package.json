@@ -16,8 +16,8 @@
     ]
   },
   "dependencies": {
-    "bankai": "^9.10.6",
-    "choo": "^6.10.3",
+    "bankai": "^9.14.0",
+    "choo": "^6.11.0",
     "commonmark": "^0.28.1",
     "component-box": "^0.2.0",
     "date-fns": "^1.29.0",
@@ -36,7 +36,7 @@
     "typeset": "^0.2.2"
   },
   "devDependencies": {
-    "choo-devtools": "^2.5.0",
+    "choo-devtools": "^2.5.1",
     "choo-scaffold": "^1.1.2",
     "dependency-check": "^3.1.0",
     "gulp": "^4.0.0",

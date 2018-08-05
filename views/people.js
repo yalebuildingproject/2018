@@ -80,8 +80,8 @@ function view (state, emit) {
         var image = (state.sortPeople == 'team') ? utils.teamshot(person.team) : utils.headshot(person.first, person.last)
 
         return html`<div data-image="${image}" class="person c12 x xjb ${marquee}">
-          <div sm="c8" class="c12 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
-          <div sm="db" class="scroll-wrap c4 fs1-6 c-gray dn">
+          <div class="c12 sm-c8 pr1-5 fs1-6 hang-indent">${utils.fullname(person.first, person.last)}</div>
+          <div class="scroll-wrap c4 fs1-6 c-gray dn sm-db">
             <div class="${(state.sortPeople == 'hometown') ? 'scroll' : ''}">${detail}</div>
           </div>
         </div>`
@@ -94,8 +94,8 @@ function view (state, emit) {
   return html`
     <body class="ff-sans px1-5">
       ${header('/people')}
-      <div sm="dn" class="container">
-        <div sm="dn" class="mb1 bb1-lightgray"><h1>People</h1></div>
+      <div class="container sm-dn">
+        <div class="mb1 bb1-lightgray sm-dn"><h1>People</h1></div>
         ${people.map(person => {
           return html`<div class="x py0-25">
             <div class="s2 pr1">
@@ -111,7 +111,7 @@ function view (state, emit) {
           </div>`
         })}
       </div>
-      <div sm="db" class="dn">
+      <div class="dn sm-db">
         ${container(col1, col2, hoverbox.render(images, aspect))}
       </div>
     </body>

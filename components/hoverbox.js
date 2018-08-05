@@ -13,15 +13,14 @@ class Hoverbox extends Nanocomponent {
     super()
     this.people = []
     this.display = this.display.bind(this)
-    this.clear = this.clear.bind(this)
   }
 
   createElement (images, aspect) {
     this.aspect = aspect
     this.images = images
     return html`<div class="xx x xjc xac">
-        <div lg="p3" class="c12 p1">
-          ${picture.render('/assets/blank.jpg', this.aspect)}
+        <div class="c12 p1 lg-p3">
+          ${picture.render(null, this.aspect)}
         </div>
       </div>`
   }
@@ -32,13 +31,13 @@ class Hoverbox extends Nanocomponent {
   }
 
   prefetch () {
-    Object.values(this.images).map(image => {
-      image.buffer = html`<picture>
-          ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
-          ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
-          <img src="${image.source}">
-        </picture>`
-    })
+    // Object.values(this.images).map(image => {
+    //   image.buffer = html`<picture>
+    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
+    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
+    //       <img src="${image.source}">
+    //     </picture>`
+    // })
   }
 
   unload () {
@@ -50,22 +49,16 @@ class Hoverbox extends Nanocomponent {
     picture.render(image.source, image.data.aspect)
   }
 
-  clear () {
-    picture.render('/assets/blank.jpg', this.aspect)
-  }
-
   register () {
     this.people = Array.from(document.querySelectorAll('div.person'))
     this.people.forEach(person => {
       person.addEventListener('mouseenter', this.display, false)
-      person.addEventListener('mouseleave', this.clear, false)
     })
   }
 
   unregister () {
     this.people.forEach(person => {
       person.removeEventListener('mouseenter', this.display)
-      person.removeEventListener('mouseleave', this.clear)
     })
   }
 

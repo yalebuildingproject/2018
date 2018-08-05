@@ -43,7 +43,7 @@ function view (state, emit) {
             return image.source
           })
 
-  var col2 = html`<div lg="px1-5" class="x xw xjs ${blur}">
+  var col2 = html`<div class="x xw xjs ${blur} lg-px1-5">
     ${imgs.map(src => {return image(src)})}
   </div>`
 
@@ -51,14 +51,14 @@ function view (state, emit) {
     <body class="ff-sans px1-5 pb1">
       ${header('/sponsors')}
       <div class="container">
-        <div sm="dn" class="mb1 bb1-lightgray"><h1>Sponsors</h1></div>
+        <div class="mb1 bb1-lightgray sm-dn"><h1>Sponsors</h1></div>
         ${layout(raw(sponsors.html), col2)}
       </div>
     </body>`
 }
 
 function image(src) {
-  return html`<div md="s4" class="s2 ${bw}">
+  return html`<div class="s2 ${bw} md-s4">
         <div class="p0-5">
           ${(new Picture()).render(src, 1)}
         </div>

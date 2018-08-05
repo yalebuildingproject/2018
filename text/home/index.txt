@@ -11,6 +11,8 @@ schedule:
     date: 2018-05-01
   - title: Groundbreaking
     date: 2018-05-14
+  - title: Festival of Arts & Ideas Pavilion
+    date: 2018-06-09
   - title: Summer Internship Begins
     date: 2018-07-02
   - title: Construction Ends
