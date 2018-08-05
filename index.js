@@ -29,6 +29,7 @@ app.use((state, emitter) => {
     site = removeResponsive(site)
   }
   utils.normalizeDates(site)
+  console.log(site)
   state.page = new Page({
     content: site
   })

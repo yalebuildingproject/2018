@@ -69,6 +69,8 @@ class Timeline extends Nanocomponent {
     this.schedule = []
     this.changeDate = this.changeDate.bind(this)
     this.click = this.click.bind(this)
+    this.forward = this.forward.bind(this)
+    this.backward = this.backward.bind(this)
   }
 
   createElement (images, schedule) {
@@ -77,12 +79,19 @@ class Timeline extends Nanocomponent {
     this.min = this.schedule[0].date
     this.max = new Date()
     var range = subDays(this.max, this.min)
-    var image = closest(this.images, this.max)
+    this.i = closest(this.images, this.max)
+    var image = this.images[this.i]
 
     return html`<div class="x xdc h100">
-      <div class="xx x xjc xac">
-        <div id="container" class="${(image.data && image.data.aspect < 1) ? 'c4' : 'c8'}">
-          ${picture.render(image.source, image.data.aspect)}
+      <div class="xx">
+        <div class="x xjc xac h100 psr">
+          <div id="container" class="${(image.data && image.data.aspect < 1) ? 'c4' : 'c8'}">
+            ${picture.render(image.source, image.data.aspect)}
+          </div>
+          <div class="psa t0 l0 r0 b0 x xjb z1">
+            <div class="s2 cursor-left" onclick=${this.backward}></div>
+            <div class="s2 cursor-right" onclick=${this.forward}></div>
+          </div>
         </div>
       </div>
       <form class="psr bt1-lightgray">
@@ -101,17 +110,6 @@ class Timeline extends Nanocomponent {
     var input = this.element.querySelector('input')
     input.value = input.max
     this.changeDate()
-    this.prefetch()
-  }
-
-  prefetch () {
-    // Object.values(this.images).map(image => {
-    //   image.buffer = html`<picture>
-    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/webp')}
-    //       ${utils.sourceTag(image.source, image.data.aspect, 'image/jpeg')}
-    //       <img src="${image.source}">
-    //     </picture>`
-    // })
   }
 
   unload (element) {
@@ -134,6 +132,22 @@ class Timeline extends Nanocomponent {
     this.changeDate()
   }
 
+  forward () {
+    if ((this.i + 1) >= this.images.length) return
+    var date = this.images[(this.i + 1)].data.date
+    var input = this.element.querySelector('input')
+    input.value = subDays(date, this.min)
+    this.changeDate()
+  }
+
+  backward () {
+    if ((this.i - 1) < 0) return
+    var date = this.images[(this.i - 1)].data.date
+    var input = this.element.querySelector('input')
+    input.value = subDays(date, this.min)
+    this.changeDate()
+  }
+
   changeDate () {
     debounce(() => {
       var input = this.element.querySelector('input')
@@ -148,7 +162,8 @@ class Timeline extends Nanocomponent {
       output.style['-ms-transform'] = `translate(${-Math.floor(offset)}px)`
       var date = addDays(this.min, input.value)
       output.innerHTML = label(date)
-      var image = closest(this.images, date)
+      this.i = closest(this.images, date)
+      var image = this.images[this.i]
       picture.render(image.source, image.data.aspect)
       var container = this.element.querySelector('#container')
       if (image.data && image.data.aspect < 1) {
@@ -175,13 +190,13 @@ function label (date) {
 }
 
 function closest (images, date) {
-  var out = images[0]
-  for (var image of images) {
-    if (image.data.date <= date) {
-      out = image
+  var i = 0
+  for (var j = 0; j < images.length; j++) {
+    if (images[j].data.date <= date) {
+      i = j
     } else {
-      return out
+      return i
     }
   }
-  return out
+  return i
 }
