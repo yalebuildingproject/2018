@@ -16,6 +16,4 @@ schedule:
   - title: Summer Internship Begins
     date: 2018-07-02
   - title: Construction Ends
-    date: 2018-08-01
-  - title: Open House Party
-    date: 2018-09-01
+    date: 2018-08-31

@@ -95,7 +95,7 @@ class Timeline extends Nanocomponent {
         </div>
       </div>
       <form class="psr bt1-lightgray">
-        <input class="w100 ${slider}" type="range" name="date" id="date" min="0" max="${range}" step="1">
+        <input class="w100 ${slider}" type="range" name="date" id="date" min="0" max="${range}" step="1" value="${range}">
         <output class="py1 psa r0 pen" name="result">${label(this.max)}</output>
       </form>
     </div>`
@@ -107,8 +107,6 @@ class Timeline extends Nanocomponent {
     })
     this.register()
     window.addEventListener('resize', this.changeDate, false)
-    var input = this.element.querySelector('input')
-    input.value = input.max
     this.changeDate()
   }
 
