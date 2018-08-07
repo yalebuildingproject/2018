@@ -2,7 +2,7 @@ var html = require('choo/html')
 var css = require('sheetify')
 var utils = require('../lib/utils')
 
-var Picture = require('../components/picture')
+var lazyPicture = require('../elements/lazy-picture')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
@@ -106,7 +106,7 @@ function view (state, emit) {
               </ul>
             </div>
             <div class="s2">
-              ${(new Picture).render(images[utils.headshot(person.first, person.last)].source, personAspect)}
+              ${lazyPicture(images[utils.headshot(person.first, person.last)].source, personAspect)}
             </div>
           </div>`
         })}

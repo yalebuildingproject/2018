@@ -26,6 +26,7 @@
     "jquery": "^3.3.1",
     "leaflet": "^1.3.1",
     "lodash": "^4.17.5",
+    "monoimage": "^0.2.0",
     "nanocomponent": "^6.5.1",
     "nanopage": "0.0.1-next.3",
     "on-idle": "^3.1.4",

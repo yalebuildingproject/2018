@@ -7,7 +7,7 @@ var utils = require('../lib/utils')
 var header = require('../elements/header')
 var container = require('../elements/list-container')
 
-var Picture = require('../components/picture')
+var lazyPicture = require('../elements/lazy-picture')
 var Timeline = require('../components/timeline')
 var timeline = new Timeline()
 
@@ -62,7 +62,7 @@ function view (state, emit) {
           return html`<div class="x py0-25">
             <div class="s2">${format(image.data.date, 'M/DD/YY')}</div>
             <div class="s2">
-              ${(new Picture()).render(image.source, image.data.aspect)}
+              ${lazyPicture(image.source, image.data.aspect)}
             </div>
           </div>`
         })}
