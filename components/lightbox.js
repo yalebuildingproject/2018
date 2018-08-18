@@ -37,8 +37,8 @@ class Lightbox extends Nanocomponent {
   createElement () {
 
     var img = this.src ? html`<picture class="${style} cursor-shrink">
-          ${utils.sourceTag(this.src, this.aspect, 'image/webp')}
-          ${utils.sourceTag(this.src, this.aspect, 'image/jpeg')}
+          ${utils.sourceTag(this.src, this.aspect, 'image/webp', true)}
+          ${utils.sourceTag(this.src, this.aspect, 'image/jpeg', true)}
           <img class="h100 w100" data-aspect="${this.aspect}" src="${this.src}">
         </picture>` : ''
 

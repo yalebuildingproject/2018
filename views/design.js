@@ -17,6 +17,13 @@ var tint = css`
   }
 `
 
+var bubble = css`
+  :host {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+`
+
 var TITLE = 'Design - Building Project 2018'
 
 module.exports = view
@@ -26,6 +33,9 @@ function view (state, emit) {
 
   var teams = state.page('/content/design').children().toArray()
   utils.shuffle(teams)
+  teams.sort((x, y) => {
+    return x.name == 'g' ? -1 : y.name == 'g' ? 1 : 0
+  })
 
   return html`
     <body class="ff-sans px1-5 pb1">
@@ -45,7 +55,11 @@ function view (state, emit) {
 }
 
 function text(team) {
-  return html`<div>
+  var selected = team.name == 'g' ?
+    html`<div class="psa t0 r0 mt1 bgc-black c-white ${bubble}">Selected Design</div>` :
+    ''
+  return html`<div class="psr">
+    ${selected}
     <h2 class="m0-75 fs3-2 ttu">${team.name}</h2>
     <div class="x">
       <ul class="mb2">
