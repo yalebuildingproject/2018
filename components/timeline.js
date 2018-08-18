@@ -2,7 +2,7 @@ var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
 
-var Picture = require('../components/picture')
+var Picture = require('../components/contain-picture')
 
 var picture = new Picture()
 
@@ -85,9 +85,7 @@ class Timeline extends Nanocomponent {
     return html`<div class="x xdc h100">
       <div class="xx">
         <div class="x xjc xac h100 psr">
-          <div id="container" class="${(image.data && image.data.aspect < 1) ? 'c4' : 'c8'}">
-            ${picture.render(image.source, image.data.aspect)}
-          </div>
+          ${picture.render(image)}
           <div class="psa t0 l0 r0 b0 x xjb z1">
             <div class="s2 cursor-left" onclick=${this.backward}></div>
             <div class="s2 cursor-right" onclick=${this.forward}></div>
@@ -162,15 +160,7 @@ class Timeline extends Nanocomponent {
       output.innerHTML = label(date)
       this.i = closest(this.images, date)
       var image = this.images[this.i]
-      picture.render(image.source, image.data.aspect)
-      var container = this.element.querySelector('#container')
-      if (image.data && image.data.aspect < 1) {
-        container.classList.remove('c8')
-        container.classList.add('c4')
-      } else {
-        container.classList.remove('c4')
-        container.classList.add('c8')
-      }
+      picture.render(image)
     }, 10)()
   }
 
