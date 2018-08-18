@@ -1,3 +1,7 @@
+if (typeof window !== 'undefined' && !window.IntersectionObserver) {
+  require('intersection-observer')
+}
+
 var css = require('sheetify')
 var choo = require('choo')
 var hypha = require('hypha')
